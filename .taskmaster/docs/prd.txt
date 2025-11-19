@@ -1,0 +1,368 @@
+# **Overview**
+
+This project delivers a modern, animated, Peru-inspired developer portfolio designed to showcase the developer’s professional experience (≈4 years), technical capabilities, and projects. It uniquely blends immersive motion design with an interactive **Llama Guide** and a fully client-facing **static RAG-powered AI assistant (Llamita AI)**.
+
+Unlike traditional architectures, this portfolio operates **entirely within Next.js**, with no external backend services. All retrieval data and embeddings are stored as static files (e.g., `/public/embeddings.json`). A lightweight RAG pipeline is executed through Next.js API Routes, which provide secure LLM access while keeping the site serverless and simple.
+
+The portfolio targets:
+
+* **Recruiters**, who need quick, accurate, verified insights.
+* **Engineering managers / tech leads**, who expect structured, technically rich answers.
+* **Potential clients**, seeking clarity on services and prior work.
+
+The product is valuable because it provides:
+
+* A memorable, animated personal brand
+* Truth-aligned AI responses grounded in static embeddings
+* A maintainable, scalable codebase without backend complexity
+* A delightful storytelling experience blending Cusco aesthetics with modern UI
+
+---
+
+# **Core Features**
+
+## **1. Hero Section with Animated Llama Guide**
+
+**What it does:**
+Displays a Peru/Cusco-inspired hero section featuring an animated llama that reacts to scroll, hover, and user actions.
+
+**Why it’s important:**
+Creates a strong first impression, defines the portfolio’s identity, and reinforces the interactive theme.
+
+**How it works:**
+
+* Built as a Next.js page section with layered parallax visuals
+* Uses Lottie JSON animations for the llama
+* CTA buttons link to Projects and the AI Chat widget
+
+---
+
+## **2. About Me Section (Experience Summary & Timeline)**
+
+**What it does:**
+Presents the developer’s background, near-4-year trajectory, and key milestones.
+
+**Why it’s important:**
+Builds credibility and organizes career history.
+
+**How it works:**
+
+* Timeline with animated entries using Framer Motion
+* Fully static content rendered at build time
+* Modular structure for easy updates
+
+---
+
+## **3. Skills Section (“Montaña del Stack”)**
+
+**What it does:**
+Visualizes the developer’s skillset as ascending layers of a stylized mountain.
+
+**Why it’s important:**
+Provides a thematic, intuitive representation of technical depth.
+
+**How it works:**
+
+* SVG or canvas-based mountain illustration
+* Animated skill icons via Framer Motion
+* Hover interactions reveal additional details
+
+---
+
+## **4. Projects Showcase**
+
+**What it does:**
+Displays portfolio projects through animated, interactive cards.
+
+**Why it’s important:**
+Demonstrates concrete work and technical versatility.
+
+**How it works:**
+
+* Grid layout with tag-based filtering
+* Hover and tap animations for expansion
+* Optional lightbox for screenshots or demos
+
+---
+
+## **5. Services Section**
+
+**What it does:**
+Lists services offered (full-stack development, architecture, consulting).
+
+**Why it’s important:**
+Helps convert viewers into potential clients.
+
+**How it works:**
+
+* Animated cards with micro-interactions
+* Fully static content rendered by Next.js
+
+---
+
+## **6. Llamita AI — Static RAG Chat Assistant**
+
+**What it does:**
+Answers questions about experience, projects, skills, and services using static RAG retrieval.
+
+**Why it’s important:**
+Reduces friction for recruiters and enhances interactivity while ensuring fully grounded, accurate responses.
+
+**How it works:**
+
+* Floating chat widget with animated llama avatar
+* Loads static embeddings from `/public/embeddings.json`
+* Uses a Next.js API Route (`/api/rag`) to:
+
+  * Embed user query
+  * Perform cosine similarity search in-memory
+  * Retrieve top K chunks
+  * Call LLM provider with grounded prompt
+* Provides typing indicators, “thinking” animations, and formatted replies
+
+---
+
+## **7. Contact Section**
+
+**What it does:**
+Allows viewers to contact the developer.
+
+**Why it’s important:**
+Enables conversion from visitor → lead.
+
+**How it works:**
+
+* Built using React Hook Form
+* Sends email via an API route + external provider (e.g., Resend)
+* Includes social links
+
+---
+
+# **User Experience**
+
+## **User Personas**
+
+1. **Recruiter / HR**
+
+   * Needs rapid, factual insights into experience, skills, and project history
+   * Relies on Llamita AI for instant Q&A
+
+2. **Engineering Manager / Tech Lead**
+
+   * Wants architecture details, technology depth, and structured summaries
+
+3. **Potential Client**
+
+   * Evaluates capability, professionalism, and services
+
+4. **General Viewer / Developer**
+
+   * Curious about visual design, motion, and implementation
+
+---
+
+## **Key User Flows**
+
+### **Flow 1: Recruiter arriving from LinkedIn**
+
+1. Lands on Hero
+2. Scrolls to About → Projects
+3. Opens Llamita AI
+4. Asks: “What’s your experience with React?”
+5. Receives grounded, concise response
+6. Navigates to Contact
+
+### **Flow 2: Engineering manager checking technical depth**
+
+1. Scrolls to Skills Mountain
+2. Opens Projects for details
+3. Uses AI to ask “Show me your backend experience”
+4. Gets aggregated, source-grounded answer
+
+### **Flow 3: Client evaluating fit**
+
+1. Visits Services
+2. Checks timeline or AI for more detail
+3. Submits the contact form
+
+---
+
+## **UX / UI Considerations**
+
+* Animations must remain lightweight and performant
+* Lazy-load Lottie assets when possible
+* The chat widget must be mobile-friendly
+* Maintain cohesion with the Cusco/Peru-inspired color palette
+* Offer reduced-motion mode for accessibility
+* Avoid overwhelming low-power devices
+
+---
+
+# **Technical Architecture**
+
+## **System Components**
+
+* **Frontend:**
+
+  * Next.js (App Router)
+  * React
+  * TailwindCSS
+  * Framer Motion
+  * Lottie + GSAP
+
+* **Static RAG:**
+
+  * Precomputed embeddings stored in `/public/embeddings.json`
+  * Cosine similarity search inside a Next.js API Route
+  * LLM calls proxied through `/api/rag` (keeps API key secure)
+
+* **Storage:**
+
+  * Single static text file or JSON file in `/public`
+
+---
+
+## **API & Integration Points**
+
+### **1. `/api/rag`**
+
+**Responsibilities:**
+
+* Load static embeddings from `/public`
+* Embed the user’s question
+* Perform similarity search
+* Construct grounded context
+* Call LLM provider
+* Return structured answer
+
+### **2. `/api/send-email`**
+
+**Responsibilities:**
+
+* Validate form data
+* Forward message to email provider
+* Return success/failure response
+
+---
+
+## **Data Models**
+
+### **Document Chunk**
+
+```json
+{
+  "id": "string",
+  "text": "string",
+  "metadata": {
+    "company": "string",
+    "role": "string",
+    "years": "string",
+    "tags": ["string"]
+  }
+}
+```
+
+### **Chat Message**
+
+```json
+{
+  "sender": "user" | "assistant",
+  "content": "string",
+  "timestamp": number
+}
+```
+
+---
+
+## **Infrastructure Requirements**
+
+* Hosted entirely on **Vercel**
+* No standalone backend services
+* Static RAG assets in `/public`
+* Serverless API Routes for RAG and email
+* No vector databases required
+
+---
+
+# **Development Roadmap**
+
+## **MVP Requirements**
+
+1. Hero section with animated llama
+2. About Me section
+3. Skills Mountain section
+4. Projects section
+5. Llamita AI chat widget (UI)
+6. Precomputed embeddings → `/public/embeddings.json`
+7. `/api/rag` static RAG endpoint
+8. Contact form with email API
+
+---
+
+## **Future Enhancements**
+
+* Full project case study pages
+* 3D llama via Three.js
+* Voice-enabled Llamita AI
+* Multi-language support (EN/ES)
+* Blog engine
+* Llama personality modes
+
+---
+
+# **Logical Dependency Chain**
+
+### **Foundational**
+
+1. Next.js scaffold + routing
+2. Layout, nav, and footer
+3. Core static content sections
+
+### **Frontend Visuals**
+
+4. Hero section + llama animation
+5. Skills, Projects, Services
+6. Contact section
+
+### **AI Integration**
+
+7. Build chat widget UI
+8. Precompute embeddings and store in `/public`
+9. Implement `/api/rag` endpoint
+
+### **Final Polish**
+
+10. Animation tuning
+11. Mobile responsiveness
+12. Deployment + SEO
+
+---
+
+# **Risks & Mitigations**
+
+| Risk                                              | Mitigation                                                           |
+| ------------------------------------------------- | -------------------------------------------------------------------- |
+| Large embeddings file impacts load time           | Chunk efficiently; compress; load on demand                          |
+| API key exposure                                  | Always use API Routes; no client-side LLM calls                      |
+| RAG accuracy depends on quality of chunks         | Use controlled chunking and strict grounding prompts                 |
+| Animation-heavy pages may cause performance drops | Lazy-load animations; reduce Lottie size; GPU-accelerated transforms |
+| Static RAG cannot update dynamically              | Include embedding-generation script in repo for easy refresh         |
+
+---
+
+# **Appendix**
+
+## **Technical Specifications**
+
+* Animations: Lottie, Framer Motion, GSAP
+* Embedding model: `text-embedding-3-large` or `text-embedding-3-small`
+* Chunk size: 300–500 tokens
+* Similarity search: cosine similarity
+* Retrieval count (K): 3–5
+
+## **Research Notes**
+
+* Recruiters spend <60 seconds reviewing a portfolio; instant clarity is essential
+* Interactive mascots increase engagement significantly
+* Static RAG provides high-quality grounding with minimal infrastructure
+
