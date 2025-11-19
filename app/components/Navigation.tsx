@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,25 +75,29 @@ export default function Navigation() {
             >
               Contact
             </button>
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground hover:text-terracotta transition-colors"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          {/* Mobile Menu & Theme Toggle */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="p-2 text-foreground hover:text-terracotta transition-colors"
+              aria-label="Toggle menu"
             >
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

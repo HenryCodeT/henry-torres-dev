@@ -50,49 +50,6 @@ export default function HeroSection() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-stone-light via-background to-sky-blue-light/20"
     >
-      {/* Animated Background Patterns */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Geometric Peru-inspired patterns */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 opacity-10"
-          style={{
-            x: mousePosition.x * 20,
-            y: mousePosition.y * 20,
-          }}
-        >
-          <svg viewBox="0 0 100 100" className="text-weaving-pink">
-            <polygon
-              points="50,10 90,30 90,70 50,90 10,70 10,30"
-              fill="currentColor"
-            />
-          </svg>
-        </motion.div>
-
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 opacity-10"
-          style={{
-            x: mousePosition.x * -15,
-            y: mousePosition.y * -15,
-          }}
-        >
-          <svg viewBox="0 0 100 100" className="text-weaving-yellow">
-            <circle cx="50" cy="50" r="40" fill="currentColor" />
-          </svg>
-        </motion.div>
-
-        <motion.div
-          className="absolute top-1/2 left-1/4 w-24 h-24 opacity-10"
-          style={{
-            x: mousePosition.x * 25,
-            y: mousePosition.y * 25,
-          }}
-        >
-          <svg viewBox="0 0 100 100" className="text-weaving-purple">
-            <rect x="10" y="10" width="80" height="80" fill="currentColor" />
-          </svg>
-        </motion.div>
-      </div>
-
       {/* Main Content Container */}
       <motion.div
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -108,7 +65,7 @@ export default function HeroSection() {
           >
             {/* Greeting Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm border border-stone/10"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-stone-light/90 backdrop-blur-sm rounded-full shadow-sm border border-stone/10"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -225,80 +182,9 @@ export default function HeroSection() {
               onHoverStart={() => setIsHovering(true)}
               onHoverEnd={() => setIsHovering(false)}
             >
-              {/* Llama Container with Glow Effect */}
-              <div className="relative">
-                {/* Glow effect */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-terracotta/20 via-weaving-pink/20 to-sky-blue/20 blur-3xl rounded-full"
-                  animate={{
-                    scale: isHovering ? 1.2 : 1,
-                    opacity: isHovering ? 0.6 : 0.3,
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                {/* Lottie Animation */}
-                <motion.div
-                  animate={{
-                    scale: isHovering ? 1.1 : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Lottie
-                    animationData={llamaAnimation}
-                    loop={true}
-                    className="w-full h-auto"
-                  />
-                </motion.div>
-
-                {/* Decorative Elements around Llama */}
-                <motion.div
-                  className="absolute -top-8 -right-8 w-16 h-16"
-                  animate={{
-                    rotate: 360,
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
-                    scale: { duration: 2, repeat: Infinity },
-                  }}
-                >
-                  <svg viewBox="0 0 100 100" className="text-weaving-yellow">
-                    <circle cx="50" cy="50" r="8" fill="currentColor" />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  className="absolute -bottom-4 -left-4 w-12 h-12"
-                  animate={{
-                    rotate: -360,
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    rotate: {
-                      duration: 15,
-                      repeat: Infinity,
-                      ease: 'linear',
-                    },
-                    scale: {
-                      duration: 2.5,
-                      repeat: Infinity,
-                      delay: 0.5,
-                    },
-                  }}
-                >
-                  <svg viewBox="0 0 100 100" className="text-weaving-pink">
-                    <polygon
-                      points="50,10 90,50 50,90 10,50"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </motion.div>
-              </div>
-
               {/* Speech Bubble */}
               <motion.div
-                className="absolute -top-16 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-lg border border-stone/10 whitespace-nowrap"
+                className="absolute -top-16 left-1/2 -translate-x-1/2 bg-background px-6 py-3 rounded-2xl shadow-lg border border-stone/10 whitespace-nowrap"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
@@ -306,7 +192,7 @@ export default function HeroSection() {
                 <p className="text-sm font-medium text-foreground">
                   ¡Hola! Let's build something amazing! 🚀
                 </p>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-r border-b border-stone/10" />
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background rotate-45 border-r border-b border-stone/10" />
               </motion.div>
             </motion.div>
           </motion.div>
