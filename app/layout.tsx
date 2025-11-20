@@ -4,6 +4,8 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import LlamitaChat from "./components/LlamitaChat";
+import AnimatedBackground from "./components/AnimatedBackground";
+import CustomCursor from "./components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +40,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <CustomCursor />
+        <AnimatedBackground />
         <Navigation />
         <main className="min-h-screen">
           {children}

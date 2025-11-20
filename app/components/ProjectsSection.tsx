@@ -1,14 +1,16 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, memo } from 'react';
 import ProjectCard from './ProjectCard';
 import { projects, projectCategories, type Project } from '@/app/data/projects';
+import { useMousePosition } from '../hooks/useMousePosition';
 
-export default function ProjectsSection() {
+const ProjectsSection = memo(function ProjectsSection() {
   const sectionRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { mousePosition, cursorPosition } = useMousePosition(32);
 
   const filteredProjects =
     selectedCategory === 'all'
@@ -20,17 +22,75 @@ export default function ProjectsSection() {
       id="projects"
       ref={sectionRef}
       className="relative py-20 md:py-32 bg-gradient-to-b from-stone-light to-background overflow-hidden"
+      style={{ perspective: '2000px' }}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              'linear-gradient(30deg, currentColor 12%, transparent 12.5%, transparent 87%, currentColor 87.5%, currentColor), linear-gradient(150deg, currentColor 12%, transparent 12.5%, transparent 87%, currentColor 87.5%, currentColor)',
-            backgroundSize: '40px 70px',
-          }}
-        />
+      {/* 3D Cube Grid Background */}
+      <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
+        {[...Array(5)].map((_, i) => {
+          const cubeX = ((i * 157) % 85) + 7;
+          const cubeY = ((i * 229) % 80) + 10;
+          const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+          const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 1080;
+          const distanceX = Math.abs(cursorPosition.x - (windowWidth * cubeX / 100));
+          const distanceY = Math.abs(cursorPosition.y - (windowHeight * cubeY / 100));
+          const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+          const maxDistance = 300;
+          const influence = Math.max(0, 1 - distance / maxDistance);
+
+          return (
+            <motion.div
+              key={`projects-cube-${i}`}
+              className="absolute"
+              style={{
+                left: `${cubeX}%`,
+                top: `${cubeY}%`,
+                width: `${75 + (i * 21) % 95}px`,
+                height: `${75 + (i * 21) % 95}px`,
+                transformStyle: 'preserve-3d',
+              }}
+              animate={{
+                x: mousePosition.x * influence * 100,
+                y: mousePosition.y * influence * 100,
+                rotateX: [0, 360],
+                rotateY: [0, -360],
+                rotateZ: mousePosition.x * influence * 45,
+              }}
+              transition={{
+                x: { type: 'spring', stiffness: 50, damping: 20 },
+                y: { type: 'spring', stiffness: 50, damping: 20 },
+                rotateX: { duration: 25 + i * 2, repeat: Infinity, ease: 'linear' },
+                rotateY: { duration: 20 + i * 3, repeat: Infinity, ease: 'linear' },
+                rotateZ: { type: 'spring', stiffness: 50, damping: 20 },
+              }}
+            >
+            <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+              {['front', 'back', 'right', 'left', 'top', 'bottom'].map((face) => {
+                const size = 75 + (i * 21) % 95;
+                const transforms = {
+                  front: `translateZ(${size / 2}px)`,
+                  back: `translateZ(-${size / 2}px) rotateY(180deg)`,
+                  right: `rotateY(90deg) translateZ(${size / 2}px)`,
+                  left: `rotateY(-90deg) translateZ(${size / 2}px)`,
+                  top: `rotateX(90deg) translateZ(${size / 2}px)`,
+                  bottom: `rotateX(-90deg) translateZ(${size / 2}px)`,
+                };
+                const colors = [
+                  'from-weaving-pink/15 to-transparent',
+                  'from-weaving-purple/15 to-transparent',
+                  'from-sky-blue/15 to-transparent',
+                ];
+                return (
+                  <div
+                    key={face}
+                    className={`absolute inset-0 bg-gradient-to-br ${colors[i % 3]} backdrop-blur-sm border border-white/5 rounded-lg`}
+                    style={{ transform: transforms[face as keyof typeof transforms] }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +253,7 @@ export default function ProjectsSection() {
       </AnimatePresence>
     </section>
   );
-}
+});
 
 function ProjectModal({
   project,
@@ -385,3 +445,5 @@ function ProjectModal({
     </>
   );
 }
+
+export default ProjectsSection;

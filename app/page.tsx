@@ -1,30 +1,49 @@
+import { lazy, Suspense } from 'react';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import SkillsSection from './components/SkillsSection';
-import ProjectsSection from './components/ProjectsSection';
-import ServicesSection from './components/ServicesSection';
-import ContactSection from './components/ContactSection';
+
+// Lazy load heavy components for better initial load performance
+const SkillsSection = lazy(() => import('./components/SkillsSection'));
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const ServicesSection = lazy(() => import('./components/ServicesSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-[400px] flex items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-terracotta" />
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div>
-      {/* Hero Section with Animated Llama */}
+      {/* Hero Section - Lottie + Framer Motion */}
       <HeroSection />
 
-      {/* About Section with Timeline */}
+      {/* About Section - Framer Motion Advanced */}
       <AboutSection />
 
-      {/* Skills Section - Montaña del Stack */}
-      <SkillsSection />
+      {/* Skills Section - Three.js 3D */}
+      <Suspense fallback={<LoadingFallback />}>
+        <SkillsSection />
+      </Suspense>
 
-      {/* Projects Section - Portfolio Showcase */}
-      <ProjectsSection />
+      {/* Projects Section - WebGL Effects */}
+      <Suspense fallback={<LoadingFallback />}>
+        <ProjectsSection />
+      </Suspense>
 
-      {/* Services Section - What I Offer */}
-      <ServicesSection />
+      {/* Services Section - GSAP Timelines */}
+      <Suspense fallback={<LoadingFallback />}>
+        <ServicesSection />
+      </Suspense>
 
-      {/* Contact Section - Get In Touch */}
-      <ContactSection />
+      {/* Contact Section */}
+      <Suspense fallback={<LoadingFallback />}>
+        <ContactSection />
+      </Suspense>
     </div>
   );
 }

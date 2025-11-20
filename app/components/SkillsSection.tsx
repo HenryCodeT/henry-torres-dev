@@ -1,14 +1,16 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import Mountain from './Mountain';
 import { skillMountain, skillCategories, type Skill } from '@/app/data/skills';
+import { useMousePosition } from '../hooks/useMousePosition';
 
-export default function SkillsSection() {
+const SkillsSection = memo(function SkillsSection() {
   const sectionRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
+  const { mousePosition, cursorPosition } = useMousePosition(32);
 
   const categories = [
     { id: null, label: 'All Skills', icon: '🗻' },
@@ -28,13 +30,65 @@ export default function SkillsSection() {
       id="skills"
       ref={sectionRef}
       className="relative py-20 md:py-32 bg-gradient-to-b from-background to-stone-light overflow-hidden"
+      style={{ perspective: '2000px' }}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
-          backgroundSize: '30px 30px',
-        }} />
+      {/* 3D Geometric Background */}
+      <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={`skills-shape-${i}`}
+            className="absolute"
+            style={{
+              left: `${((i * 173) % 85) + 5}%`,
+              top: `${((i * 241) % 75) + 10}%`,
+              width: `${70 + (i * 19) % 90}px`,
+              height: `${70 + (i * 19) % 90}px`,
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              rotateX: i % 2 === 0 ? [0, 360] : [360, 0],
+              rotateY: [0, 360],
+              z: [0, 50, 0],
+            }}
+            transition={{
+              rotateX: { duration: 22 + i * 2, repeat: Infinity, ease: 'linear' },
+              rotateY: { duration: 18 + i * 3, repeat: Infinity, ease: 'linear' },
+              z: { duration: 6 + i, repeat: Infinity, ease: 'easeInOut' },
+            }}
+          >
+            {/* All Cubes */}
+            <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+              {['front', 'back', 'right', 'left', 'top', 'bottom'].map((face) => {
+                const size = 70 + (i * 19) % 90;
+                const transforms = {
+                  front: `translateZ(${size / 2}px)`,
+                  back: `translateZ(-${size / 2}px) rotateY(180deg)`,
+                  right: `rotateY(90deg) translateZ(${size / 2}px)`,
+                  left: `rotateY(-90deg) translateZ(${size / 2}px)`,
+                  top: `rotateX(90deg) translateZ(${size / 2}px)`,
+                  bottom: `rotateX(-90deg) translateZ(${size / 2}px)`,
+                };
+                const colors = [
+                  'from-sky-blue/15 to-transparent',
+                  'from-weaving-pink/15 to-transparent',
+                  'from-weaving-purple/15 to-transparent',
+                  'from-terracotta/15 to-transparent',
+                  'from-weaving-yellow/15 to-transparent',
+                ];
+                return (
+                  <div
+                    key={face}
+                    className={`absolute inset-0 bg-gradient-to-br ${colors[i % 5]} border border-white/30`}
+                    style={{
+                      transform: transforms[face as keyof typeof transforms],
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+        ))}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -235,9 +289,9 @@ export default function SkillsSection() {
       </div>
     </section>
   );
-}
+});
 
-function SkillLayer({
+const SkillLayer = memo(function SkillLayer({
   layer,
   index,
   onSkillHover,
@@ -311,4 +365,6 @@ function SkillLayer({
       </div>
     </motion.div>
   );
-}
+});
+
+export default SkillsSection;

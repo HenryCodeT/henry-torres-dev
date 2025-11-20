@@ -6,7 +6,8 @@
       "Bash(taskkill /F /PID 28584 2)",
       "Bash(nul)",
       "Bash(tasklist:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

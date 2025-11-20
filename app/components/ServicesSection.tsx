@@ -1,12 +1,14 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import { services, workProcess, whyChooseMe, type Service } from '@/app/data/services';
+import { useMousePosition } from '../hooks/useMousePosition';
 
-export default function ServicesSection() {
+const ServicesSection = memo(function ServicesSection() {
   const sectionRef = useRef(null);
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const { mousePosition, cursorPosition } = useMousePosition(32);
 
   const handleContact = () => {
     const element = document.getElementById('contact');
@@ -18,15 +20,81 @@ export default function ServicesSection() {
       id="services"
       ref={sectionRef}
       className="relative py-20 md:py-32 bg-gradient-to-b from-background to-stone-light overflow-hidden"
+      style={{ perspective: '2000px' }}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+      {/* 3D Cube Background */}
+      <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
+        {[...Array(5)].map((_, i) => {
+          const cubeX = ((i * 193) % 88) + 6;
+          const cubeY = ((i * 257) % 82) + 9;
+          const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+          const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 1080;
+          const distanceX = Math.abs(cursorPosition.x - (windowWidth * cubeX / 100));
+          const distanceY = Math.abs(cursorPosition.y - (windowHeight * cubeY / 100));
+          const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+          const maxDistance = 300;
+          const influence = Math.max(0, 1 - distance / maxDistance);
+
+          return (
+            <motion.div
+              key={`services-shape-${i}`}
+              className="absolute"
+              style={{
+                left: `${cubeX}%`,
+                top: `${cubeY}%`,
+                width: `${65 + (i * 25) % 100}px`,
+                height: `${65 + (i * 25) % 100}px`,
+                transformStyle: 'preserve-3d',
+              }}
+              animate={{
+                x: mousePosition.x * influence * 100,
+                y: mousePosition.y * influence * 100,
+                rotateX: [0, 360],
+                rotateY: [0, 360],
+                rotateZ: mousePosition.x * influence * 45,
+              }}
+              transition={{
+                x: { type: 'spring', stiffness: 50, damping: 20 },
+                y: { type: 'spring', stiffness: 50, damping: 20 },
+                rotateX: { duration: 28 + i * 2, repeat: Infinity, ease: 'linear' },
+                rotateY: { duration: 24 + i * 3, repeat: Infinity, ease: 'linear' },
+                rotateZ: { type: 'spring', stiffness: 50, damping: 20 },
+              }}
+            >
+              {/* All Cubes */}
+              <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+                {['front', 'back', 'right', 'left', 'top', 'bottom'].map((face) => {
+                  const size = 65 + (i * 25) % 100;
+                  const transforms = {
+                    front: `translateZ(${size / 2}px)`,
+                    back: `translateZ(-${size / 2}px) rotateY(180deg)`,
+                    right: `rotateY(90deg) translateZ(${size / 2}px)`,
+                    left: `rotateY(-90deg) translateZ(${size / 2}px)`,
+                    top: `rotateX(90deg) translateZ(${size / 2}px)`,
+                    bottom: `rotateX(-90deg) translateZ(${size / 2}px)`,
+                  };
+                  const colors = [
+                    'from-terracotta/15 to-transparent',
+                    'from-sky-blue/15 to-transparent',
+                    'from-weaving-yellow/15 to-transparent',
+                    'from-weaving-pink/15 to-transparent',
+                    'from-weaving-purple/15 to-transparent',
+                  ];
+                  return (
+                    <div
+                      key={face}
+                      className={`absolute inset-0 bg-gradient-to-br ${colors[i % 5]} border border-white/30`}
+                      style={{
+                        transform: transforms[face as keyof typeof transforms],
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -155,7 +223,7 @@ export default function ServicesSection() {
       </div>
     </section>
   );
-}
+});
 
 function ServiceCard({
   service,
@@ -402,3 +470,5 @@ function ProcessStep({
     </motion.div>
   );
 }
+
+export default ServicesSection;

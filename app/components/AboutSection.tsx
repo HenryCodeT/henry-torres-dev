@@ -1,41 +1,91 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, memo } from 'react';
 import TimelineItem from './TimelineItem';
 import { timelineData, aboutStats } from '@/app/data/timeline';
+import { useMousePosition } from '../hooks/useMousePosition';
 
-export default function AboutSection() {
+const AboutSection = memo(function AboutSection() {
   const sectionRef = useRef(null);
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true, margin: '-100px' });
+  const { mousePosition, cursorPosition } = useMousePosition(32);
 
   return (
     <section
       id="about"
       ref={sectionRef}
       className="relative py-20 md:py-32 bg-gradient-to-b from-stone-light to-background overflow-hidden"
+      style={{ perspective: '2000px' }}
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
+      {/* 3D Cube Background */}
+      <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
+        {[...Array(4)].map((_, i) => {
+          const cubeX = ((i * 137) % 80) + 10;
+          const cubeY = ((i * 271) % 70) + 15;
+          const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1920;
+          const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 1080;
+          const distanceX = Math.abs(cursorPosition.x - (windowWidth * cubeX / 100));
+          const distanceY = Math.abs(cursorPosition.y - (windowHeight * cubeY / 100));
+          const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+          const maxDistance = 300;
+          const influence = Math.max(0, 1 - distance / maxDistance);
+
+          return (
+            <motion.div
+              key={`about-cube-${i}`}
+              className="absolute"
+              style={{
+                left: `${cubeX}%`,
+                top: `${cubeY}%`,
+                width: `${80 + (i * 23) % 100}px`,
+                height: `${80 + (i * 23) % 100}px`,
+                transformStyle: 'preserve-3d',
+              }}
+              animate={{
+                x: mousePosition.x * influence * 100,
+                y: mousePosition.y * influence * 100,
+                rotateX: [0, 360],
+                rotateY: [0, 360],
+                rotateZ: mousePosition.x * influence * 45,
+              }}
+              transition={{
+                x: { type: 'spring', stiffness: 50, damping: 20 },
+                y: { type: 'spring', stiffness: 50, damping: 20 },
+                rotateX: { duration: 20 + i * 3, repeat: Infinity, ease: 'linear' },
+                rotateY: { duration: 25 + i * 2, repeat: Infinity, ease: 'linear' },
+                rotateZ: { type: 'spring', stiffness: 50, damping: 20 },
+              }}
             >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+            <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+              {/* Cube faces with gradient colors */}
+              {['front', 'back', 'right', 'left', 'top', 'bottom'].map((face) => {
+                const transforms = {
+                  front: `translateZ(${(80 + (i * 23) % 100) / 2}px)`,
+                  back: `translateZ(-${(80 + (i * 23) % 100) / 2}px) rotateY(180deg)`,
+                  right: `rotateY(90deg) translateZ(${(80 + (i * 23) % 100) / 2}px)`,
+                  left: `rotateY(-90deg) translateZ(${(80 + (i * 23) % 100) / 2}px)`,
+                  top: `rotateX(90deg) translateZ(${(80 + (i * 23) % 100) / 2}px)`,
+                  bottom: `rotateX(-90deg) translateZ(${(80 + (i * 23) % 100) / 2}px)`,
+                };
+                const colors = [
+                  'from-terracotta/15 to-transparent',
+                  'from-sky-blue/15 to-transparent',
+                  'from-weaving-pink/15 to-transparent',
+                ];
+                return (
+                  <div
+                    key={face}
+                    className={`absolute inset-0 bg-gradient-to-br ${colors[i % 3]} backdrop-blur-sm border border-white/5 rounded-lg`}
+                    style={{ transform: transforms[face as keyof typeof transforms] }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+          );
+        })}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,4 +280,6 @@ export default function AboutSection() {
       </div>
     </section>
   );
-}
+});
+
+export default AboutSection;

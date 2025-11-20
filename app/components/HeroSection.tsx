@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, memo } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Lottie from 'lottie-react';
 import llamaAnimation from '@/public/animations/llama-placeholder.json';
+import { useMousePosition } from '../hooks/useMousePosition';
 
-export default function HeroSection() {
+const HeroSection = memo(function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const { mousePosition, cursorPosition } = useMousePosition(32);
 
   // Scroll-based animations
   const { scrollYProgress } = useScroll({
@@ -24,20 +25,6 @@ export default function HeroSection() {
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
   const ySpring = useSpring(y, springConfig);
 
-  // Mouse parallax effect
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!heroRef.current) return;
-      const rect = heroRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   const handleCTAClick = (section: string) => {
     const element = document.getElementById(section);
     if (element) {
@@ -49,7 +36,62 @@ export default function HeroSection() {
     <section
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-stone-light via-background to-sky-blue-light/20"
+      style={{ perspective: '2000px' }}
     >
+      {/* 3D Cubes in Hero Background */}
+      <div className="absolute inset-0 z-0" style={{ transformStyle: 'preserve-3d' }}>
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`hero-cube-${i}`}
+            className="absolute"
+            style={{
+              left: `${((i * 181) % 80) + 10}%`,
+              top: `${((i * 263) % 70) + 15}%`,
+              width: `${100 + (i * 27) % 120}px`,
+              height: `${100 + (i * 27) % 120}px`,
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              rotateX: [0, 360],
+              rotateY: [0, -360],
+              y: [0, -40, 0],
+              x: [0, (i % 2 === 0 ? 30 : -30), 0],
+            }}
+            transition={{
+              rotateX: { duration: 18 + i * 3, repeat: Infinity, ease: 'linear' },
+              rotateY: { duration: 22 + i * 2, repeat: Infinity, ease: 'linear' },
+              y: { duration: 6 + i, repeat: Infinity, ease: 'easeInOut' },
+              x: { duration: 8 + i * 0.5, repeat: Infinity, ease: 'easeInOut' },
+            }}
+          >
+            <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+              {['front', 'back', 'right', 'left', 'top', 'bottom'].map((face) => {
+                const size = 100 + (i * 27) % 120;
+                const transforms = {
+                  front: `translateZ(${size / 2}px)`,
+                  back: `translateZ(-${size / 2}px) rotateY(180deg)`,
+                  right: `rotateY(90deg) translateZ(${size / 2}px)`,
+                  left: `rotateY(-90deg) translateZ(${size / 2}px)`,
+                  top: `rotateX(90deg) translateZ(${size / 2}px)`,
+                  bottom: `rotateX(-90deg) translateZ(${size / 2}px)`,
+                };
+                const colors = [
+                  'from-terracotta/20 to-transparent',
+                  'from-sky-blue/20 to-transparent',
+                  'from-weaving-pink/20 to-transparent',
+                ];
+                return (
+                  <div
+                    key={face}
+                    className={`absolute inset-0 bg-gradient-to-br ${colors[i % 3]} backdrop-blur-sm border border-white/10 rounded-lg`}
+                    style={{ transform: transforms[face as keyof typeof transforms] }}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
+        ))}
+      </div>
       {/* Main Content Container */}
       <motion.div
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -112,38 +154,121 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+            {/* CTA Buttons - 3D Style */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4" style={{ perspective: '1000px' }}>
               <motion.button
                 onClick={() => handleCTAClick('projects')}
-                className="group px-8 py-4 bg-terracotta text-white rounded-full font-medium transition-all duration-300 hover:shadow-xl hover:shadow-terracotta/30 relative overflow-hidden"
-                whileHover={{ scale: 1.05 }}
+                className="group relative px-8 py-4 font-medium overflow-visible"
+                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateX: -5,
+                  rotateY: 5,
+                }}
                 whileTap={{ scale: 0.95 }}
+                animate={{
+                  rotateX: [0, 2, 0],
+                  rotateY: [0, -2, 0],
+                }}
+                transition={{
+                  rotateX: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                  rotateY: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
+                }}
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  View My Work
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                {/* Button 3D Cube Structure */}
+                <div className="relative" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Front Face */}
+                  <div
+                    className="relative z-10 flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-terracotta to-terracotta-dark text-white rounded-lg border border-terracotta-light/30"
+                    style={{ transform: 'translateZ(20px)' }}
                   >
-                    <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-terracotta-dark to-terracotta transition-transform group-hover:scale-110" />
+                    <span>View My Work</span>
+                    <svg
+                      className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
+                  {/* Top Face */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-terracotta-light to-terracotta rounded-t-lg"
+                    style={{
+                      transform: 'rotateX(90deg) translateZ(20px)',
+                      transformOrigin: 'top',
+                      height: '40px',
+                    }}
+                  />
+                  {/* Right Face */}
+                  <div
+                    className="absolute right-0 top-0 bg-gradient-to-b from-terracotta-dark to-terracotta rounded-r-lg"
+                    style={{
+                      transform: 'rotateY(90deg) translateZ(20px)',
+                      transformOrigin: 'right',
+                      width: '40px',
+                      height: '100%',
+                    }}
+                  />
+                  {/* Shadow */}
+                  <div className="absolute -inset-2 bg-terracotta/20 blur-xl -z-10" style={{ transform: 'translateZ(-10px)' }} />
+                </div>
               </motion.button>
 
               <motion.button
                 onClick={() => handleCTAClick('contact')}
-                className="px-8 py-4 border-2 border-terracotta text-terracotta rounded-full font-medium transition-all duration-300 hover:bg-terracotta hover:text-white hover:shadow-lg"
-                whileHover={{ scale: 1.05 }}
+                className="group relative px-8 py-4 font-medium overflow-visible"
+                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateX: 5,
+                  rotateY: -5,
+                }}
                 whileTap={{ scale: 0.95 }}
+                animate={{
+                  rotateX: [0, -2, 0],
+                  rotateY: [0, 2, 0],
+                }}
+                transition={{
+                  rotateX: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
+                  rotateY: { duration: 4, repeat: Infinity, ease: 'easeInOut' },
+                }}
               >
-                Get In Touch
+                {/* Button 3D Cube Structure */}
+                <div className="relative" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Front Face */}
+                  <div
+                    className="relative z-10 px-8 py-4 bg-background border-2 border-terracotta text-terracotta rounded-lg group-hover:bg-terracotta group-hover:text-white transition-colors duration-300"
+                    style={{ transform: 'translateZ(20px)' }}
+                  >
+                    Get In Touch
+                  </div>
+                  {/* Top Face */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-terracotta/30 to-sky-blue/30 rounded-t-lg"
+                    style={{
+                      transform: 'rotateX(90deg) translateZ(20px)',
+                      transformOrigin: 'top',
+                      height: '40px',
+                    }}
+                  />
+                  {/* Right Face */}
+                  <div
+                    className="absolute right-0 top-0 bg-gradient-to-b from-sky-blue/30 to-terracotta/30 rounded-r-lg"
+                    style={{
+                      transform: 'rotateY(90deg) translateZ(20px)',
+                      transformOrigin: 'right',
+                      width: '40px',
+                      height: '100%',
+                    }}
+                  />
+                  {/* Shadow */}
+                  <div className="absolute -inset-2 bg-terracotta/10 blur-xl -z-10" style={{ transform: 'translateZ(-10px)' }} />
+                </div>
               </motion.button>
             </div>
 
@@ -163,38 +288,6 @@ export default function HeroSection() {
                 )
               )}
             </div>
-          </motion.div>
-
-          {/* Right Side - Animated Llama */}
-          <motion.div
-            className="relative flex items-center justify-center"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ y: ySpring }}
-          >
-            <motion.div
-              className="relative w-full max-w-md"
-              style={{
-                x: mousePosition.x * 10,
-                y: mousePosition.y * 10,
-              }}
-              onHoverStart={() => setIsHovering(true)}
-              onHoverEnd={() => setIsHovering(false)}
-            >
-              {/* Speech Bubble */}
-              <motion.div
-                className="absolute -top-16 left-1/2 -translate-x-1/2 bg-background px-6 py-3 rounded-2xl shadow-lg border border-stone/10 whitespace-nowrap"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-              >
-                <p className="text-sm font-medium text-foreground">
-                  ¡Hola! Let's build something amazing! 🚀
-                </p>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-background rotate-45 border-r border-b border-stone/10" />
-              </motion.div>
-            </motion.div>
           </motion.div>
         </div>
       </motion.div>
@@ -230,4 +323,6 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
-}
+});
+
+export default HeroSection;
