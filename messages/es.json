@@ -8,32 +8,71 @@
     "contact": "Contacto"
   },
   "hero": {
-    "greeting": "Hola, soy",
+    "badge": "¡Hola! Bienvenido a mi portafolio",
+    "prefix": "Soy",
     "name": "Henry Torres",
-    "title": "Desarrollador Full Stack",
-    "subtitle": "Creando experiencias web modernas con React, Next.js e IA",
-    "location": "Basado en Lima, Perú",
-    "experience": "4+ Años de Experiencia",
-    "projects": "50+ Proyectos Entregados",
-    "satisfaction": "100% Satisfacción del Cliente",
-    "cta": "Ver Mi Trabajo",
-    "contact": "Contactar"
+    "title": "Desarrollador Full-Stack",
+    "subtitle": "especializado en el desarrollo de aplicaciones web modernas y funcionales.",
+    "stats": {
+      "yearsLabel": "Años",
+      "yearsSubLabel": "Experiencia",
+      "projectsLabel": "Proyectos",
+      "projectsSubLabel": "Completados",
+      "linesLabel": "Líneas",
+      "linesSubLabel": "de Código"
+    },
+    "cta": {
+      "viewWork": "Ver Mi Trabajo",
+      "getInTouch": "Contactar"
+    },
+    "techStack": ["React", "Next.js", "TypeScript", "Node.js", "Tailwind"],
+    "scrollText": "Desplázate para explorar"
   },
   "about": {
-    "title": "Sobre Mí",
-    "subtitle": "Desarrollador apasionado de Perú",
-    "description": "Soy un desarrollador full-stack con más de 4 años de experiencia construyendo aplicaciones web modernas. Me especializo en React, Next.js, TypeScript e integración de IA. Mi misión es crear soluciones elegantes y eficientes que tengan un impacto real.",
+    "badge": "Sobre Mí",
+    "title": "Mi Trayectoria en",
+    "titleHighlight": "Tecnología",
+    "subtitle": "Con 3 años de experiencia, he construido plataformas completas, resuelto problemas críticos en sistemas distribuidos y liderado migraciones a arquitecturas modernas mientras colaboro con equipos de alto rendimiento.",
     "stats": {
-      "experience": "Años de Experiencia",
-      "projects": "Proyectos Completados",
-      "satisfaction": "Satisfacción del Cliente",
-      "technologies": "Tecnologías"
+      "yearsExperience": "Años de Experiencia",
+      "companiesWorkedWith": "Empresas con las que he trabajado",
+      "freelanceClient": "Cliente Freelance"
+    },
+    "personalNote": {
+      "icon": "💡",
+      "title": "Que Me Motiva",
+      "paragraph1": "Me apasiona resolver problemas reales a través de código limpio y eficiente. Disfruto transformar ideas en aplicaciones funcionales, ya sea mejorando sistemas existentes, creando interfaces modernas o integrando tecnologías para ofrecer experiencias fluidas. Mi formación en electrónica e investigación alimenta mi curiosidad y me impulsa a seguir aprendiendo y perfeccionando mi trabajo.",
+      "paragraph2": "Desde Perú 🇵🇪, he colaborado con empresas y equipos de diferentes países en proyectos de educación, SaaS, fintech y sistemas con IA. Me enfoco en escribir código confiable, comprender a profundidad el comportamiento de los sistemas y entregar soluciones que realmente aporten valor a los usuarios.",
+      "cta": {
+        "viewWork": "Ver Mi Trabajo",
+        "letsConnect": "Conectemos"
+      }
+    },
+    "skills": {
+      "title": "Tecnologías Principales",
+      "subtitle": "Herramientas y tecnologías que uso para construir productos increíbles"
     }
   },
   "skills": {
-    "title": "Habilidades y Tecnologías",
-    "subtitle": "Mi Montaña de Tecnología",
-    "description": "Organizadas por nivel de experiencia - como escalar los Andes",
+    "badge": "Habilidades Técnicas",
+    "title": "Montaña del Stack",
+    "description": "Mi experiencia técnica visualizada como una montaña andina - cada capa representa un nivel diferente de dominio",
+    "categories": {
+      "all": "Todas las Habilidades",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "ai": "IA"
+    },
+    "legend": {
+      "title": "Leyenda de la Montaña"
+    },
+    "stats": {
+      "technologies": "Tecnologías",
+      "expertAreas": "Áreas Expertas",
+      "yearsLearning": "Años Aprendiendo",
+      "passion": "Pasión"
+    },
     "levels": {
       "expert": "Experto",
       "advanced": "Avanzado",

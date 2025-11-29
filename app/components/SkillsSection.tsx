@@ -2,21 +2,24 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, memo } from 'react';
+import { useTranslations } from 'next-intl';
 import Mountain from './Mountain';
 import { skillMountain, skillCategories, type Skill } from '@/app/data/skills';
 import { useMousePosition } from '../hooks/useMousePosition';
 
 const SkillsSection = memo(function SkillsSection() {
+  const t = useTranslations('skills');
   const sectionRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
   const { mousePosition, cursorPosition } = useMousePosition(32);
 
   const categories = [
-    { id: null, label: 'All Skills', icon: '🗻' },
-    { id: 'frontend', label: 'Frontend', icon: '⚛️' },
-    { id: 'backend', label: 'Backend', icon: '🔧' },
-    { id: 'devops', label: 'DevOps', icon: '🚀' },
+    { id: null, label: t('categories.all'), icon: '🗻' },
+    { id: 'frontend', label: t('categories.frontend'), icon: '⚛️' },
+    { id: 'backend', label: t('categories.backend'), icon: '🔧' },
+    { id: 'devops', label: t('categories.devops'), icon: '🚀' },
+    { id: 'ai', label: t('categories.ai'), icon: '🤖' },
   ];
 
   const filterSkills = (skills: Skill[]) => {
@@ -107,18 +110,17 @@ const SkillsSection = memo(function SkillsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            Technical Skills
+            {t('badge')}
           </motion.span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             <span className="bg-gradient-to-r from-sky-blue via-weaving-pink to-weaving-purple bg-clip-text text-transparent">
-              Montaña del Stack
+              {t('title')}
             </span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            My technical expertise visualized as an Andean mountain - each layer
-            represents a different level of mastery
+            {t('description')}
           </p>
         </motion.div>
 
@@ -137,7 +139,7 @@ const SkillsSection = memo(function SkillsSection() {
               className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category.id
                   ? 'bg-sky-blue text-white shadow-lg shadow-sky-blue/30'
-                  : 'bg-white text-foreground border border-stone/20 hover:border-sky-blue hover:text-sky-blue'
+                  : 'bg-stone-light text-foreground border border-stone/20 hover:border-sky-blue hover:text-sky-blue'
               }`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -167,7 +169,7 @@ const SkillsSection = memo(function SkillsSection() {
 
               {/* Legend */}
               <motion.div
-                className="mt-6 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg"
+                className="mt-6 p-6 bg-stone-light backdrop-blur-sm rounded-2xl shadow-lg"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -175,7 +177,7 @@ const SkillsSection = memo(function SkillsSection() {
               >
                 <h3 className="font-bold text-foreground mb-4 flex items-center gap-2">
                   <span className="text-2xl">🗻</span>
-                  Mountain Legend
+                  {t('legend.title')}
                 </h3>
                 <div className="space-y-2 text-sm">
                   {skillMountain.map((layer, index) => (
@@ -264,10 +266,10 @@ const SkillsSection = memo(function SkillsSection() {
           transition={{ duration: 0.6 }}
         >
           {[
-            { value: skillMountain.reduce((sum, layer) => sum + layer.skills.length, 0), label: 'Technologies', icon: '⚡' },
-            { value: skillMountain.filter(layer => layer.skills.some(s => s.level >= 4)).length, label: 'Expert Areas', icon: '🎯' },
-            { value: '4+', label: 'Years Learning', icon: '📚' },
-            { value: '100%', label: 'Passion', icon: '❤️' },
+            { value: skillMountain.reduce((sum, layer) => sum + layer.skills.length, 0), label: t('stats.technologies'), icon: '⚡' },
+            { value: skillMountain.filter(layer => layer.skills.some(s => s.level >= 4)).length, label: t('stats.expertAreas'), icon: '🎯' },
+            { value: '3+', label: t('stats.yearsLearning'), icon: '📚' },
+            { value: '100%', label: t('stats.passion'), icon: '❤️' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -335,7 +337,7 @@ const SkillLayer = memo(function SkillLayer({
         {layer.skills.map((skill, skillIndex) => (
           <motion.button
             key={skill.name}
-            className="group relative px-4 py-2.5 bg-white rounded-full border-2 border-stone/10 hover:border-sky-blue transition-all duration-300 shadow-sm hover:shadow-md"
+            className="group relative px-4 py-2.5 bg-stone-light rounded-full border-2 border-stone/10 hover:border-sky-blue transition-all duration-300 shadow-sm hover:shadow-md"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={
               isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }

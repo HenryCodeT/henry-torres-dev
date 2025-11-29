@@ -8,32 +8,71 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello, I'm",
+    "badge": "Hola! Welcome to my portfolio",
+    "prefix": "I'm",
     "name": "Henry Torres",
-    "title": "Full Stack Developer",
-    "subtitle": "Crafting modern web experiences with React, Next.js & AI",
-    "location": "Based in Lima, Peru",
-    "experience": "4+ Years Experience",
-    "projects": "50+ Projects Delivered",
-    "satisfaction": "100% Client Satisfaction",
-    "cta": "View My Work",
-    "contact": "Get In Touch"
+    "title": "Full-Stack Developer",
+    "subtitle": "specialized in building modern and functional web applications",
+    "stats": {
+      "yearsLabel": "Years",
+      "yearsSubLabel": "Experience",
+      "projectsLabel": "Projects",
+      "projectsSubLabel": "Completed",
+      "linesLabel": "Lines",
+      "linesSubLabel": "of Code"
+    },
+    "cta": {
+      "viewWork": "View My Work",
+      "getInTouch": "Get In Touch"
+    },
+    "techStack": ["React", "Next.js", "TypeScript", "Node.js", "Tailwind"],
+    "scrollText": "Scroll to explore"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Passionate developer from Peru",
-    "description": "I'm a full-stack developer with over 4 years of experience building modern web applications. I specialize in React, Next.js, TypeScript, and AI integration. My mission is to create elegant, performant solutions that make a real impact.",
+    "badge": "About Me",
+    "title": "My Journey in",
+    "titleHighlight": "Tech",
+    "subtitle": "With 3 years of experience, I’ve built end-to-end platforms, solved critical issues in distributed systems, and led migrations to modern architectures while collaborating with high-performing teams.",
     "stats": {
-      "experience": "Years Experience",
-      "projects": "Projects Completed",
-      "satisfaction": "Client Satisfaction",
-      "technologies": "Technologies"
+      "yearsExperience": "Years of Experience",
+      "companiesWorkedWith": "Companies Worked With",
+      "freelanceClient": "Freelance Client"
+    },
+    "personalNote": {
+      "icon": "💡",
+      "title": "What Drives Me",
+      "paragraph1": "I’m passionate about solving real problems through clean, efficient code. I enjoy transforming ideas into functional applications—whether it's improving existing systems, building modern interfaces, or integrating technologies to create smooth user experiences. My background in electronics and research fuels my curiosity and motivates me to keep learning and improving.",
+      "paragraph2": "Based in Peru 🇵🇪, I’ve worked with companies and teams across different countries, contributing to projects in education, SaaS, fintech, and AI. I focus on writing reliable code, understanding system behavior, and delivering solutions that truly help users.",
+      "cta": {
+        "viewWork": "View My Work",
+        "letsConnect": "Let's Connect"
+      }
+    },
+    "skills": {
+      "title": "Core Technologies",
+      "subtitle": "Tools and technologies I use to build amazing products"
     }
   },
   "skills": {
-    "title": "Skills & Technologies",
-    "subtitle": "My Technology Mountain",
-    "description": "Organized by expertise level - like climbing the Andes",
+    "badge": "Technical Skills",
+    "title": "Montaña del Stack",
+    "description": "My technical expertise visualized as an Andean mountain - each layer represents a different level of mastery",
+    "categories": {
+      "all": "All Skills",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "ai": "AI"
+    },
+    "legend": {
+      "title": "Mountain Legend"
+    },
+    "stats": {
+      "technologies": "Technologies",
+      "expertAreas": "Expert Areas",
+      "yearsLearning": "Years Learning",
+      "passion": "Passion"
+    },
     "levels": {
       "expert": "Expert",
       "advanced": "Advanced",

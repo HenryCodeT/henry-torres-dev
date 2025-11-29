@@ -2,11 +2,13 @@
 
 import { useRef, useState, memo } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import Lottie from 'lottie-react';
 import llamaAnimation from '@/public/animations/llama-placeholder.json';
 import { useMousePosition } from '../hooks/useMousePosition';
 
 const HeroSection = memo(function HeroSection() {
+  const t = useTranslations('hero');
   const heroRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   const { mousePosition, cursorPosition } = useMousePosition(32);
@@ -114,42 +116,41 @@ const HeroSection = memo(function HeroSection() {
             >
               <span className="text-2xl">👋</span>
               <span className="text-sm font-medium text-muted-foreground">
-                Hola! Welcome to my portfolio
+                {t('badge')}
               </span>
             </motion.div>
 
             {/* Main Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-foreground mb-2">I'm</span>
+              <span className="block text-foreground mb-2">{t('prefix')}</span>
               <span className="block bg-gradient-to-r from-terracotta via-weaving-pink to-sky-blue bg-clip-text text-transparent">
-                Henry Torres
+                {t('name')}
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl">
-              Full-Stack Developer crafting delightful web experiences with
-              modern technologies
+              {t('title')} {t('subtitle')}
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
               <div className="text-center lg:text-left">
-                <div className="text-3xl font-bold text-terracotta">4+</div>
+                <div className="text-3xl font-bold text-terracotta">3+</div>
                 <div className="text-sm text-muted-foreground">
-                  Years Experience
+                  {t('stats.yearsLabel')} {t('stats.yearsSubLabel')}
                 </div>
               </div>
-              <div className="text-center lg:text-left">
+              {/* <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-sky-blue">50+</div>
                 <div className="text-sm text-muted-foreground">
-                  Projects Completed
+                  {t('stats.projectsLabel')} {t('stats.projectsSubLabel')}
                 </div>
-              </div>
+              </div> */}
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-weaving-pink">∞</div>
                 <div className="text-sm text-muted-foreground">
-                  Lines of Code
+                  {t('stats.linesLabel')} {t('stats.linesSubLabel')}
                 </div>
               </div>
             </div>
@@ -182,7 +183,7 @@ const HeroSection = memo(function HeroSection() {
                     className="relative z-10 flex items-center gap-2 px-8 py-4 bg-gradient-to-br from-terracotta to-terracotta-dark text-white rounded-lg border border-terracotta-light/30"
                     style={{ transform: 'translateZ(20px)' }}
                   >
-                    <span>View My Work</span>
+                    <span>{t('cta.viewWork')}</span>
                     <svg
                       className="w-5 h-5 transition-transform group-hover:translate-x-1"
                       fill="none"
@@ -245,7 +246,7 @@ const HeroSection = memo(function HeroSection() {
                     className="relative z-10 px-8 py-4 bg-background border-2 border-terracotta text-terracotta rounded-lg group-hover:bg-terracotta group-hover:text-white transition-colors duration-300"
                     style={{ transform: 'translateZ(20px)' }}
                   >
-                    Get In Touch
+                    {t('cta.getInTouch')}
                   </div>
                   {/* Top Face */}
                   <div
@@ -274,11 +275,11 @@ const HeroSection = memo(function HeroSection() {
 
             {/* Tech Stack Pills */}
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start pt-4">
-              {['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind'].map(
+              {(t.raw('techStack') as string[]).map(
                 (tech, index) => (
                   <motion.span
                     key={tech}
-                    className="px-3 py-1 bg-white/60 backdrop-blur-sm text-sm font-medium text-foreground rounded-full border border-stone/10"
+                    className="px-3 py-1 bg-stone-light backdrop-blur-sm text-sm font-medium text-foreground rounded-full border border-stone/10"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
@@ -306,7 +307,7 @@ const HeroSection = memo(function HeroSection() {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <span className="text-sm text-muted-foreground group-hover:text-terracotta transition-colors">
-            Scroll to explore
+            {t('scrollText')}
           </span>
           <svg
             className="w-6 h-6 text-terracotta"
