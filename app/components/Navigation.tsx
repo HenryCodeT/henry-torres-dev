@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navigation() {
+  const t = useTranslations('navigation');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,37 +52,39 @@ export default function Navigation() {
               onClick={() => scrollToSection('about')}
               className="text-foreground/70 hover:text-terracotta transition-colors duration-200"
             >
-              About
+              {t('about')}
             </button>
             <button
               onClick={() => scrollToSection('skills')}
               className="text-foreground/70 hover:text-terracotta transition-colors duration-200"
             >
-              Skills
+              {t('skills')}
             </button>
             <button
               onClick={() => scrollToSection('projects')}
               className="text-foreground/70 hover:text-terracotta transition-colors duration-200"
             >
-              Projects
+              {t('projects')}
             </button>
             <button
               onClick={() => scrollToSection('services')}
               className="text-foreground/70 hover:text-terracotta transition-colors duration-200"
             >
-              Services
+              {t('services')}
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="px-6 py-2 bg-terracotta text-white rounded-full hover:bg-terracotta-dark transition-all duration-200 hover:shadow-lg hover:scale-105"
             >
-              Contact
+              {t('contact')}
             </button>
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu & Theme Toggle */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               className="p-2 text-foreground hover:text-terracotta transition-colors"

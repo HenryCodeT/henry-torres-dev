@@ -1,0 +1,112 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Henry Torres",
+    "title": "Desarrollador Full Stack",
+    "subtitle": "Creando experiencias web modernas con React, Next.js e IA",
+    "location": "Basado en Lima, Perú",
+    "experience": "4+ Años de Experiencia",
+    "projects": "50+ Proyectos Entregados",
+    "satisfaction": "100% Satisfacción del Cliente",
+    "cta": "Ver Mi Trabajo",
+    "contact": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Desarrollador apasionado de Perú",
+    "description": "Soy un desarrollador full-stack con más de 4 años de experiencia construyendo aplicaciones web modernas. Me especializo en React, Next.js, TypeScript e integración de IA. Mi misión es crear soluciones elegantes y eficientes que tengan un impacto real.",
+    "stats": {
+      "experience": "Años de Experiencia",
+      "projects": "Proyectos Completados",
+      "satisfaction": "Satisfacción del Cliente",
+      "technologies": "Tecnologías"
+    }
+  },
+  "skills": {
+    "title": "Habilidades y Tecnologías",
+    "subtitle": "Mi Montaña de Tecnología",
+    "description": "Organizadas por nivel de experiencia - como escalar los Andes",
+    "levels": {
+      "expert": "Experto",
+      "advanced": "Avanzado",
+      "proficient": "Competente"
+    }
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "subtitle": "Construyendo soluciones impactantes",
+    "viewProject": "Ver Proyecto",
+    "viewCode": "Ver Código",
+    "technologies": "Tecnologías Utilizadas"
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Lo que ofrezco",
+    "startingAt": "Desde",
+    "duration": "Duración",
+    "popular": "Más Popular",
+    "learnMore": "Saber Más"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Construyamos algo increíble juntos",
+    "name": "Tu Nombre",
+    "email": "Tu Email",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado exitosamente!",
+    "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+    "location": "Ubicación",
+    "availability": "Disponibilidad",
+    "availabilityStatus": "Disponible para nuevos proyectos",
+    "responseTime": "Tiempo de Respuesta",
+    "responseTimeValue": "Dentro de 24 horas"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "in": "en Perú"
+  },
+  "chat": {
+    "title": "Llamita IA",
+    "subtitle": "Asistente de Portfolio de Henry",
+    "welcome": "¡Hola! Soy Llamita, la asistente de IA de Henry. Puedo responder preguntas sobre sus habilidades, proyectos, servicios y cómo trabajar con él. ¿Qué te gustaría saber?",
+    "placeholder": "Pregúntame lo que quieras sobre Henry...",
+    "send": "Enviar",
+    "suggestedQuestions": "Preguntas sugeridas:",
+    "questions": {
+      "technologies": "¿En qué tecnologías se especializa Henry?",
+      "ai": "Cuéntame sobre la experiencia de Henry en integración de IA",
+      "services": "¿Qué servicios ofrece Henry?",
+      "projects": "Muéstrame los proyectos recientes de Henry",
+      "contact": "¿Cómo puedo contactar a Henry?",
+      "pricing": "¿Cuál es el precio de Henry para desarrollo web?"
+    },
+    "error": "¡Lo siento! Estoy teniendo problemas de conexión ahora. Por favor, intenta de nuevo o contacta a Henry directamente a henry.torres@example.com",
+    "responses": {
+      "about": "Henry Torres es un Desarrollador Full Stack con sede en Lima, Perú, con más de 4 años de experiencia. Se especializa en React, Next.js, TypeScript e integración de IA. Ha construido más de 50 proyectos con una tasa de satisfacción del cliente del 100%. Henry es apasionado por crear aplicaciones web modernas y eficientes e integrar capacidades de IA de vanguardia en soluciones del mundo real.",
+      "skills": "La experiencia de Henry abarca todo el stack web moderno:\n\n🏔️ **Nivel Experto:** Next.js, React, TypeScript, Integración de IA\n⛰️ **Avanzado:** Node.js, Tailwind CSS, PostgreSQL, GraphQL, Python\n🏕️ **Competente:** AWS, Docker, Redis, MongoDB, APIs REST\n\n¡Organiza sus habilidades como una montaña - la 'Montaña del Stack' - con sus habilidades más fuertes en la cima! Puedes explorar el desglose completo en la sección de Habilidades.",
+      "services": "Henry ofrece varios servicios completos:\n\n💻 **Desarrollo Web** - Desde $5,000 (4-8 semanas)\n⚡ **Desarrollo Full-Stack** - Desde $10,000 (8-12 semanas) [MÁS POPULAR]\n🤖 **Integración de IA** - Desde $7,500 (6-10 semanas)\n💡 **Consultoría Técnica** - $150/hora (Flexible)\n🔧 **Mantenimiento y Soporte** - Desde $2,000/mes\n🛒 **Soluciones E-Commerce** - Desde $12,000 (10-16 semanas)\n\nTodos los proyectos incluyen código fuente, documentación y soporte post-lanzamiento. ¿Quieres discutir un proyecto específico?",
+      "projects": "Henry ha construido algunos proyectos impresionantes:\n\n🛒 **Plataforma E-Commerce** (2024) - Escalado a 50,000+ usuarios con $2M+ en transacciones\n📊 **Dashboard de Análisis SaaS** (2024) - Procesando 5M+ eventos diarios\n🤖 **Generador de Contenido IA** (2024) - Generó 100,000+ piezas de contenido usando GPT-4 y Claude\n💪 **App de Fitness** (2023) - 100,000+ descargas, calificación de 4.8 estrellas\n🏠 **Portal Inmobiliario** (2023) - 10,000+ listados de propiedades con tours virtuales\n🏥 **Sistema de Salud** (2023) - Plataforma de telemedicina compatible con HIPAA\n\n¡Visita la sección de Proyectos para casos de estudio detallados!",
+      "contact": "Puedes contactar a Henry de varias maneras:\n\n📧 **Email:** henry.torres@example.com (Responde en 24 horas)\n📍 **Ubicación:** Lima, Perú (Trabaja remotamente a nivel mundial)\n💼 **LinkedIn:** linkedin.com/in/henrytorres\n🐙 **GitHub:** github.com/henrytorres\n\n✅ **Actualmente Disponible** para nuevos proyectos!\n\nHenry ofrece una llamada de descubrimiento gratuita de 30 minutos para discutir tu proyecto. Solo envíale un mensaje a través del formulario de contacto o email directamente. Normalmente reserva con 2-4 semanas de anticipación para nuevos compromisos.",
+      "ai": "Henry tiene amplia experiencia con integración de IA:\n\n🤖 Construyó sistemas RAG personalizados (¡como este chatbot!)\n🔗 Integró GPT-4, Claude y otros LLMs\n🧠 Desarrolló herramientas de generación de contenido con IA\n📚 Implementó bases de datos vectoriales y búsqueda semántica\n⚙️ Creó flujos de trabajo y automatización de IA personalizados\n\nHa trabajado con OpenAI, Anthropic, LangChain y Pinecone para construir funciones de IA en producción. Uno de sus proyectos de IA generó más de 100,000 piezas de contenido con una reducción del 85% en el tiempo de creación. ¿Quieres agregar IA a tu producto?",
+      "peru": "¡Hola! 🦙 Henry está orgullosamente basado en Lima, Perú, y este portafolio está inspirado en los hermosos colores y cultura del Cusco y las tierras altas peruanas. El diseño usa tonos terracota, azules cielo que recuerdan los cielos de gran altitud, y colores vibrantes de tejido de textiles peruanos tradicionales. Como desarrollador peruano, Henry aporta una perspectiva única a proyectos tecnológicos globales mientras mantiene fuertes conexiones con clientes en todo el mundo en todas las zonas horarias.",
+      "llamita": "¡Hola! Soy Llamita 🦙, ¡la asistente de IA del portafolio de Henry! Fui construida usando un sistema RAG (Generación Aumentada por Recuperación) simple que lee archivos de base de conocimientos para responder tus preguntas sobre las habilidades, proyectos, servicios de Henry y cómo trabajar con él. Piensa en mí como tu guía amigable para explorar este portafolio. Puedo ayudarte a encontrar información sobre:\n\n- Habilidades técnicas y experiencia de Henry\n- Servicios y precios\n- Proyectos anteriores y casos de estudio\n- Cómo ponerse en contacto\n\n¿Qué te gustaría saber?",
+      "default": "¡Me encantaría ayudarte a aprender más sobre Henry! Aquí hay una vista rápida:\n\n👨‍💻 **Sobre:** Desarrollador Full Stack con más de 4 años de experiencia, basado en Lima, Perú\n🎯 **Especialidades:** Next.js, React, TypeScript, Integración de IA\n💼 **Servicios:** Desarrollo web, integración de IA, consultoría y más\n📊 **Historial:** 50+ proyectos, 100% satisfacción del cliente\n\nPuedes hacerme preguntas específicas sobre:\n- Habilidades técnicas y tecnologías\n- Servicios y precios\n- Proyectos anteriores y casos de estudio\n- Cómo contactar a Henry\n- Experiencia en integración de IA y LLM\n\n¿Qué te gustaría saber más?"
+    }
+  },
+  "language": {
+    "english": "Inglés",
+    "spanish": "Español",
+    "switchTo": "Cambiar a {language}"
+  }
+}

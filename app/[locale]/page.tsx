@@ -1,12 +1,12 @@
 import { lazy, Suspense } from 'react';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
+import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
 
 // Lazy load heavy components for better initial load performance
-const SkillsSection = lazy(() => import('./components/SkillsSection'));
-const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
-const ServicesSection = lazy(() => import('./components/ServicesSection'));
-const ContactSection = lazy(() => import('./components/ContactSection'));
+const SkillsSection = lazy(() => import('../components/SkillsSection'));
+const ProjectsSection = lazy(() => import('../components/ProjectsSection'));
+const ServicesSection = lazy(() => import('../components/ServicesSection'));
+const ContactSection = lazy(() => import('../components/ContactSection'));
 
 function LoadingFallback() {
   return (

@@ -1,0 +1,112 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Henry Torres",
+    "title": "Full Stack Developer",
+    "subtitle": "Crafting modern web experiences with React, Next.js & AI",
+    "location": "Based in Lima, Peru",
+    "experience": "4+ Years Experience",
+    "projects": "50+ Projects Delivered",
+    "satisfaction": "100% Client Satisfaction",
+    "cta": "View My Work",
+    "contact": "Get In Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate developer from Peru",
+    "description": "I'm a full-stack developer with over 4 years of experience building modern web applications. I specialize in React, Next.js, TypeScript, and AI integration. My mission is to create elegant, performant solutions that make a real impact.",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "satisfaction": "Client Satisfaction",
+      "technologies": "Technologies"
+    }
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "My Technology Mountain",
+    "description": "Organized by expertise level - like climbing the Andes",
+    "levels": {
+      "expert": "Expert",
+      "advanced": "Advanced",
+      "proficient": "Proficient"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Building impactful solutions",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "technologies": "Technologies Used"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "What I offer",
+    "startingAt": "Starting at",
+    "duration": "Duration",
+    "popular": "Most Popular",
+    "learnMore": "Learn More"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's build something amazing together",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message. Please try again.",
+    "location": "Location",
+    "availability": "Availability",
+    "availabilityStatus": "Available for new projects",
+    "responseTime": "Response Time",
+    "responseTimeValue": "Within 24 hours"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with",
+    "in": "in Peru"
+  },
+  "chat": {
+    "title": "Llamita AI",
+    "subtitle": "Henry's Portfolio Assistant",
+    "welcome": "¡Hola! I'm Llamita, Henry's AI assistant. I can answer questions about his skills, projects, services, and how to work with him. What would you like to know?",
+    "placeholder": "Ask me anything about Henry...",
+    "send": "Send",
+    "suggestedQuestions": "Suggested questions:",
+    "questions": {
+      "technologies": "What technologies does Henry specialize in?",
+      "ai": "Tell me about Henry's AI integration experience",
+      "services": "What services does Henry offer?",
+      "projects": "Show me Henry's recent projects",
+      "contact": "How can I contact Henry?",
+      "pricing": "What's Henry's pricing for web development?"
+    },
+    "error": "Lo siento! I'm having trouble connecting right now. Please try again or contact Henry directly at henry.torres@example.com",
+    "responses": {
+      "about": "Henry Torres is a Full Stack Developer based in Lima, Peru, with over 4 years of experience. He specializes in React, Next.js, TypeScript, and AI integration. He's built 50+ projects with a 100% client satisfaction rate. Henry is passionate about creating modern, performant web applications and integrating cutting-edge AI capabilities into real-world solutions.",
+      "skills": "Henry's expertise spans the entire modern web stack:\n\n🏔️ **Expert Level:** Next.js, React, TypeScript, AI Integration\n⛰️ **Advanced:** Node.js, Tailwind CSS, PostgreSQL, GraphQL, Python\n🏕️ **Proficient:** AWS, Docker, Redis, MongoDB, REST APIs\n\nHe organizes his skills like a mountain - the 'Montaña del Stack' - with his strongest skills at the peak. You can explore the full breakdown in the Skills section!",
+      "services": "Henry offers several comprehensive services:\n\n💻 **Web Development** - Starting at $5,000 (4-8 weeks)\n⚡ **Full-Stack Development** - Starting at $10,000 (8-12 weeks) [MOST POPULAR]\n🤖 **AI Integration** - Starting at $7,500 (6-10 weeks)\n💡 **Technical Consulting** - $150/hour (Flexible)\n🔧 **Maintenance & Support** - Starting at $2,000/month\n🛒 **E-Commerce Solutions** - Starting at $12,000 (10-16 weeks)\n\nAll projects include source code, documentation, and post-launch support. Want to discuss a specific project?",
+      "projects": "Henry has built some impressive projects:\n\n🛒 **E-Commerce Platform** (2024) - Scaled to 50,000+ users with $2M+ in transactions\n📊 **SaaS Analytics Dashboard** (2024) - Processing 5M+ events daily\n🤖 **AI Content Generator** (2024) - Generated 100,000+ pieces of content using GPT-4 and Claude\n💪 **Fitness App** (2023) - 100,000+ downloads, 4.8-star rating\n🏠 **Real Estate Portal** (2023) - 10,000+ property listings with virtual tours\n🏥 **Healthcare System** (2023) - HIPAA-compliant telemedicine platform\n\nCheck out the Projects section for detailed case studies!",
+      "contact": "You can reach Henry in several ways:\n\n📧 **Email:** henry.torres@example.com (Responds within 24 hours)\n📍 **Location:** Lima, Peru (Works remotely worldwide)\n💼 **LinkedIn:** linkedin.com/in/henrytorres\n🐙 **GitHub:** github.com/henrytorres\n\n✅ **Currently Available** for new projects!\n\nHenry offers a free 30-minute discovery call to discuss your project. Just send him a message through the contact form or email directly. He typically books 2-4 weeks in advance for new engagements.",
+      "ai": "Henry has extensive experience with AI integration:\n\n🤖 Built custom RAG systems (like this chatbot!)\n🔗 Integrated GPT-4, Claude, and other LLMs\n🧠 Developed AI-powered content generation tools\n📚 Implemented vector databases and semantic search\n⚙️ Created custom AI workflows and automation\n\nHe's worked with OpenAI, Anthropic, LangChain, and Pinecone to build production AI features. One of his AI projects generated 100,000+ pieces of content with 85% reduction in creation time. Want to add AI to your product?",
+      "peru": "¡Hola! 🦙 Henry is proudly based in Lima, Peru, and this portfolio is inspired by the beautiful colors and culture of Cusco and the Peruvian highlands. The design uses terracotta tones, sky blues reminiscent of high-altitude skies, and vibrant weaving colors from traditional Peruvian textiles. As a Peruvian developer, Henry brings a unique perspective to global tech projects while maintaining strong connections with clients worldwide across all time zones.",
+      "llamita": "¡Hola! I'm Llamita 🦙, Henry's AI portfolio assistant! I was built using a simple RAG (Retrieval-Augmented Generation) system that reads from knowledge base files to answer your questions about Henry's skills, projects, services, and how to work with him. Think of me as your friendly guide to exploring this portfolio. I can help you find information about:\n\n- Henry's technical skills and expertise\n- Services and pricing\n- Past projects and case studies\n- How to get in touch\n\nWhat would you like to know?",
+      "default": "I'd be happy to help you learn more about Henry! Here's a quick overview:\n\n👨‍💻 **About:** Full Stack Developer with 4+ years experience, based in Lima, Peru\n🎯 **Specialties:** Next.js, React, TypeScript, AI Integration\n💼 **Services:** Web development, AI integration, consulting, and more\n📊 **Track Record:** 50+ projects, 100% client satisfaction\n\nYou can ask me specific questions about:\n- Technical skills and technologies\n- Services and pricing\n- Past projects and case studies\n- How to contact Henry\n- AI and LLM integration experience\n\nWhat would you like to know more about?"
+    }
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Spanish",
+    "switchTo": "Switch to {language}"
+  }
+}
