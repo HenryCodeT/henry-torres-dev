@@ -2,10 +2,12 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState, memo } from 'react';
+import { useTranslations } from 'next-intl';
 import { services, workProcess, whyChooseMe, type Service } from '@/app/data/services';
 import { useMousePosition } from '../hooks/useMousePosition';
 
 const ServicesSection = memo(function ServicesSection() {
+  const t = useTranslations('services');
   const sectionRef = useRef(null);
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const { mousePosition, cursorPosition } = useMousePosition(32);
@@ -113,19 +115,18 @@ const ServicesSection = memo(function ServicesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            Services
+            {t('badge')}
           </motion.span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            How I Can{' '}
+            {t('title')}{' '}
             <span className="bg-gradient-to-r from-terracotta via-weaving-pink to-sky-blue bg-clip-text text-transparent">
-              Help You
+              {t('titleHighlight')}
             </span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            From web development to AI integration, I offer comprehensive
-            solutions tailored to your needs
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -155,10 +156,10 @@ const ServicesSection = memo(function ServicesSection() {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              My Work Process
+              {t('workProcess.title')}
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A proven methodology ensuring successful project delivery
+              {t('workProcess.subtitle')}
             </p>
           </div>
 
@@ -179,17 +180,17 @@ const ServicesSection = memo(function ServicesSection() {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Why Work With Me
+              {t('whyChooseMe.title')}
             </h3>
             <p className="text-muted-foreground">
-              What sets me apart from other developers
+              {t('whyChooseMe.subtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseMe.map((reason, index) => (
               <motion.div
-                key={reason.title}
+                key={reason.id}
                 className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -199,10 +200,10 @@ const ServicesSection = memo(function ServicesSection() {
               >
                 <div className="text-4xl mb-3">{reason.icon}</div>
                 <h4 className="text-lg font-bold text-foreground mb-2">
-                  {reason.title}
+                  {t(`why.${reason.id}.title`)}
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  {reason.description}
+                  {t(`why.${reason.id}.description`)}
                 </p>
               </motion.div>
             ))}
@@ -216,7 +217,7 @@ const ServicesSection = memo(function ServicesSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Let's Discuss Your Project
+              {t('whyChooseMe.cta')}
             </motion.button>
           </div>
         </motion.div>
@@ -238,6 +239,7 @@ function ServiceCard({
   onToggleExpand: () => void;
   onContact: () => void;
 }) {
+  const t = useTranslations('services');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
@@ -291,7 +293,7 @@ function ServiceCard({
       {service.popular && (
         <div className="absolute top-4 right-4 z-10">
           <div className="px-3 py-1 bg-weaving-purple text-white text-xs font-bold rounded-full shadow-lg">
-            POPULAR
+            {t('popular')}
           </div>
         </div>
       )}
@@ -301,37 +303,37 @@ function ServiceCard({
 
       <div className="p-6">
         {/* Icon */}
-        <div className="text-5xl mb-4">{service.icon}</div>
+        <div className="text-5xl mb-4">{t(`items.${service.id}.icon`)}</div>
 
         {/* Title & Description */}
         <h3 className={`text-2xl font-bold ${colors.text} mb-2`}>
-          {service.title}
+          {t(`items.${service.id}.title`)}
         </h3>
-        <p className="text-muted-foreground mb-4">{service.description}</p>
+        <p className="text-muted-foreground mb-4">{t(`items.${service.id}.description`)}</p>
 
         {/* Pricing & Timeline */}
-        {(service.pricing || service.timeline) && (
+        {/* {(service.pricing || service.timeline) && (
           <div className="flex items-center gap-4 mb-4 pb-4 border-b border-stone/10">
             {service.pricing && (
               <div>
-                <div className="text-xs text-muted-foreground">Pricing</div>
-                <div className="font-bold text-foreground">{service.pricing}</div>
+                <div className="text-xs text-muted-foreground">{t('pricing')}</div>
+                <div className="font-bold text-foreground">{t(`items.${service.id}.pricing`)}</div>
               </div>
             )}
             {service.timeline && (
               <div>
-                <div className="text-xs text-muted-foreground">Timeline</div>
-                <div className="font-semibold text-foreground">{service.timeline}</div>
+                <div className="text-xs text-muted-foreground">{t('timeline')}</div>
+                <div className="font-semibold text-foreground">{t(`items.${service.id}.timeline`)}</div>
               </div>
             )}
           </div>
-        )}
+        )} */}
 
         {/* Features */}
         <div className="mb-4">
-          <h4 className="font-semibold text-foreground mb-2">Key Features:</h4>
+          <h4 className="font-semibold text-foreground mb-2">{t('keyFeatures')}</h4>
           <ul className="space-y-2">
-            {service.features.slice(0, 3).map((feature, idx) => (
+            {t.raw(`items.${service.id}.features`).slice(0, 3).map((feature: string, idx: number) => (
               <li key={idx} className="flex items-start gap-2 text-sm">
                 <svg
                   className={`w-5 h-5 ${colors.text} flex-shrink-0 mt-0.5`}
@@ -358,9 +360,9 @@ function ServiceCard({
           className="overflow-hidden"
         >
           {/* Remaining Features */}
-          {service.features.length > 3 && (
+          {t.raw(`items.${service.id}.features`).length > 3 && (
             <ul className="space-y-2 mb-4">
-              {service.features.slice(3).map((feature, idx) => (
+              {t.raw(`items.${service.id}.features`).slice(3).map((feature: string, idx: number) => (
                 <li key={idx} className="flex items-start gap-2 text-sm">
                   <svg
                     className={`w-5 h-5 ${colors.text} flex-shrink-0 mt-0.5`}
@@ -381,9 +383,9 @@ function ServiceCard({
 
           {/* Deliverables */}
           <div className="mb-4">
-            <h4 className="font-semibold text-foreground mb-2">Deliverables:</h4>
+            <h4 className="font-semibold text-foreground mb-2">{t('deliverables')}</h4>
             <ul className="space-y-1">
-              {service.deliverables.map((item, idx) => (
+              {t.raw(`items.${service.id}.deliverables`).map((item: string, idx: number) => (
                 <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
                   <span className={colors.text}>•</span>
                   {item}
@@ -394,9 +396,9 @@ function ServiceCard({
 
           {/* Technologies */}
           <div className="mb-4">
-            <h4 className="font-semibold text-foreground mb-2">Technologies:</h4>
+            <h4 className="font-semibold text-foreground mb-2">{t('technologies')}</h4>
             <div className="flex flex-wrap gap-2">
-              {service.technologies.map((tech) => (
+              {t.raw(`items.${service.id}.technologies`).map((tech: string) => (
                 <span
                   key={tech}
                   className={`px-2 py-1 text-xs ${colors.text} bg-${colors.bg}/10 rounded-full border ${colors.border}/20`}
@@ -414,13 +416,13 @@ function ServiceCard({
             onClick={onToggleExpand}
             className={`flex-1 px-4 py-2 border-2 ${colors.border} ${colors.text} rounded-full font-medium hover:bg-${colors.bg} hover:text-white transition-colors text-sm`}
           >
-            {isExpanded ? 'Show Less' : 'Learn More'}
+            {isExpanded ? t('showLess') : t('learnMore')}
           </button>
           <button
             onClick={onContact}
             className={`flex-1 px-4 py-2 ${colors.bg} text-white rounded-full font-medium hover:opacity-90 transition-opacity text-sm`}
           >
-            Get Started
+            {t('getStarted')}
           </button>
         </div>
       </div>
@@ -435,8 +437,13 @@ function ProcessStep({
   step: typeof workProcess[0];
   index: number;
 }) {
+  const t = useTranslations('services');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  // Map step number to translation key
+  const stepKeys = ['discovery', 'planning', 'development', 'testing', 'launch', 'support'];
+  const stepKey = stepKeys[step.step - 1];
 
   return (
     <motion.div
@@ -452,14 +459,14 @@ function ProcessStep({
           <div className="w-12 h-12 bg-gradient-to-br from-terracotta to-weaving-pink text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
             {step.step}
           </div>
-          <div className="text-3xl">{step.icon}</div>
+          <div className="text-3xl">{t(`process.${stepKey}.icon`)}</div>
         </div>
 
         {/* Content */}
-        <h4 className="text-xl font-bold text-foreground mb-2">{step.title}</h4>
-        <p className="text-sm text-muted-foreground mb-3">{step.description}</p>
+        <h4 className="text-xl font-bold text-foreground mb-2">{t(`process.${stepKey}.title`)}</h4>
+        <p className="text-sm text-muted-foreground mb-3">{t(`process.${stepKey}.description`)}</p>
         <div className="text-xs font-medium text-terracotta">
-          ⏱ {step.duration}
+          ⏱ {t(`process.${stepKey}.duration`)}
         </div>
       </div>
 

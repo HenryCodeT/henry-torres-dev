@@ -117,12 +117,216 @@
     }
   },
   "services": {
-    "title": "Servicios",
-    "subtitle": "Lo que ofrezco",
-    "startingAt": "Desde",
-    "duration": "Duración",
-    "popular": "Más Popular",
-    "learnMore": "Saber Más"
+    "badge": "Servicios",
+    "title": "Cómo Puedo",
+    "titleHighlight": "Ayudarte",
+    "subtitle": "Desde desarrollo web hasta integración de IA, ofrezco soluciones integrales adaptadas a tus necesidades",
+    "keyFeatures": "Características Clave:",
+    "deliverables": "Entregables:",
+    "technologies": "Tecnologías:",
+    "showLess": "Ver Menos",
+    "learnMore": "Saber Más",
+    "getStarted": "Comenzar",
+    "pricing": "Precio",
+    "timeline": "Plazo",
+    "popular": "POPULAR",
+    "workProcess": {
+      "title": "Mi Proceso de Trabajo",
+      "subtitle": "Una metodología probada que garantiza la entrega exitosa del proyecto"
+    },
+    "whyChooseMe": {
+      "title": "Por Qué Trabajar Conmigo",
+      "subtitle": "Lo que me diferencia de otros desarrolladores",
+      "cta": "Hablemos de Tu Proyecto"
+    },
+    "items": {
+      "webDevelopment": {
+        "title": "Desarrollo Web",
+        "description": "Aplicaciones web personalizadas construidas con tecnologías modernas para escalabilidad y rendimiento",
+        "icon": "🌐",
+        "features": [
+          "Diseño responsivo para todos los dispositivos",
+          "Optimización SEO y ajuste de rendimiento",
+          "Frameworks modernos (React, Next.js)",
+          "Aplicaciones Web Progresivas (PWA)",
+          "Integración y desarrollo de APIs"
+        ],
+        "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        "deliverables": [
+          "Aplicación web completamente funcional",
+          "Código fuente y documentación",
+          "3 meses de soporte gratuito",
+          "Configuración de despliegue y hosting"
+        ],
+        "pricing": "Desde $5,000",
+        "timeline": "4-8 semanas"
+      },
+      "fullstackDevelopment": {
+        "title": "Desarrollo Full-Stack",
+        "description": "Soluciones completas desde el diseño de base de datos hasta la implementación del frontend",
+        "icon": "⚡",
+        "features": [
+          "Desarrollo completo de frontend y backend",
+          "Diseño y optimización de bases de datos",
+          "APIs RESTful y GraphQL",
+          "Características en tiempo real con WebSockets",
+          "Despliegue y escalado en la nube"
+        ],
+        "technologies": ["Next.js", "Node.js", "PostgreSQL", "AWS"],
+        "deliverables": [
+          "Aplicación full-stack",
+          "Esquema de base de datos y migraciones",
+          "Documentación de API",
+          "Configuración de CI/CD"
+        ],
+        "pricing": "Desde $10,000",
+        "timeline": "8-12 semanas"
+      },
+      "aiIntegration": {
+        "title": "Integración de IA",
+        "description": "Integra capacidades de IA y aprendizaje automático en tus aplicaciones",
+        "icon": "🤖",
+        "features": [
+          "Integración de LLM (GPT, Claude, etc.)",
+          "Flujos de trabajo y automatización de IA personalizados",
+          "Sistemas RAG para bases de conocimiento",
+          "Características y chatbots impulsados por IA",
+          "Ajuste fino e ingeniería de prompts"
+        ],
+        "technologies": ["OpenAI", "Anthropic", "LangChain", "Vector DBs"],
+        "deliverables": [
+          "Características impulsadas por IA",
+          "Documentación de integración",
+          "Capacitación y transferencia de conocimiento",
+          "Optimización y monitoreo"
+        ],
+        "pricing": "Desde $7,500",
+        "timeline": "6-10 semanas"
+      },
+      "consulting": {
+        "title": "Consultoría Técnica",
+        "description": "Orientación experta sobre arquitectura, elección de tecnologías y mejores prácticas",
+        "icon": "💡",
+        "features": [
+          "Revisión de arquitectura y recomendaciones",
+          "Evaluación del stack tecnológico",
+          "Revisión y optimización de código",
+          "Auditorías de rendimiento",
+          "Capacitación y mentoría de equipos"
+        ],
+        "technologies": ["Arquitectura", "Mejores Prácticas", "Revisión de Código"],
+        "deliverables": [
+          "Informe técnico detallado",
+          "Diagramas de arquitectura",
+          "Recomendaciones accionables",
+          "Sesiones de seguimiento"
+        ],
+        "pricing": "$150/hora",
+        "timeline": "Flexible"
+      },
+      "maintenance": {
+        "title": "Mantenimiento y Soporte",
+        "description": "Soporte y mantenimiento continuo para tus aplicaciones web",
+        "icon": "🔧",
+        "features": [
+          "Corrección de errores y actualizaciones",
+          "Parches de seguridad y monitoreo",
+          "Optimización de rendimiento",
+          "Mejoras de funcionalidades",
+          "Soporte de emergencia 24/7 disponible"
+        ],
+        "technologies": ["Todos los Frameworks Principales", "DevOps", "Monitoreo"],
+        "deliverables": [
+          "Informes de estado mensuales",
+          "Actualizaciones y parches regulares",
+          "Métricas de rendimiento",
+          "Acceso prioritario al soporte"
+        ],
+        "pricing": "Desde $2,000/mes",
+        "timeline": "Continuo"
+      },
+      "ecommerce": {
+        "title": "Soluciones E-Commerce",
+        "description": "Plataformas de comercio electrónico completas con integración de pagos y gestión de inventario",
+        "icon": "🛒",
+        "features": [
+          "Plataformas de e-commerce personalizadas",
+          "Integración de pasarelas de pago",
+          "Sistemas de gestión de inventario",
+          "Paneles de administración",
+          "Análisis y reportes"
+        ],
+        "technologies": ["Next.js", "Stripe", "PostgreSQL", "Redis"],
+        "deliverables": [
+          "Plataforma de e-commerce completa",
+          "Integración de pagos",
+          "Panel de administración",
+          "Dashboard de análisis"
+        ],
+        "pricing": "Desde $12,000",
+        "timeline": "10-16 semanas"
+      }
+    },
+    "process": {
+      "discovery": {
+        "title": "Descubrimiento",
+        "description": "Entendiendo tus necesidades, objetivos y requisitos técnicos",
+        "icon": "🔍",
+        "duration": "1-2 días"
+      },
+      "planning": {
+        "title": "Planificación",
+        "description": "Creando plan de proyecto detallado, cronograma y arquitectura",
+        "icon": "📋",
+        "duration": "2-3 días"
+      },
+      "development": {
+        "title": "Desarrollo",
+        "description": "Construyendo tu solución con actualizaciones y demos regulares",
+        "icon": "⚙️",
+        "duration": "Dependiente del proyecto"
+      },
+      "testing": {
+        "title": "Pruebas",
+        "description": "Pruebas exhaustivas, control de calidad y optimización de rendimiento",
+        "icon": "🧪",
+        "duration": "1-2 semanas"
+      },
+      "launch": {
+        "title": "Lanzamiento",
+        "description": "Despliegue, monitoreo y capacitación para tu equipo",
+        "icon": "🚀",
+        "duration": "3-5 días"
+      },
+      "support": {
+        "title": "Soporte",
+        "description": "Soporte continuo, mantenimiento y mejoras",
+        "icon": "🤝",
+        "duration": "Continuo"
+      }
+    },
+    "why": {
+      "experience": {
+        "title": "Más de 4 Años de Experiencia",
+        "description": "Historial comprobado entregando proyectos de alta calidad",
+        "icon": "📚"
+      },
+      "modernStack": {
+        "title": "Stack Tecnológico Moderno",
+        "description": "Usando tecnologías de vanguardia y mejores prácticas",
+        "icon": "⚡"
+      },
+      "communication": {
+        "title": "Comunicación Clara",
+        "description": "Actualizaciones regulares y gestión de proyectos transparente",
+        "icon": "💬"
+      },
+      "satisfaction": {
+        "title": "100% Satisfacción",
+        "description": "Comprometido a entregar resultados que superen las expectativas",
+        "icon": "⭐"
+      }
+    }
   },
   "contact": {
     "title": "Contáctame",

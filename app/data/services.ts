@@ -14,7 +14,7 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: 'web-development',
+    id: 'webDevelopment',
     title: 'Web Development',
     description: 'Custom web applications built with modern technologies for scalability and performance',
     icon: '🌐',
@@ -37,7 +37,7 @@ export const services: Service[] = [
     color: 'sky-blue',
   },
   {
-    id: 'fullstack-development',
+    id: 'fullstackDevelopment',
     title: 'Full-Stack Development',
     description: 'End-to-end solutions from database design to frontend implementation',
     icon: '⚡',
@@ -61,7 +61,7 @@ export const services: Service[] = [
     color: 'weaving-purple',
   },
   {
-    id: 'ai-integration',
+    id: 'aiIntegration',
     title: 'AI Integration',
     description: 'Integrate AI and machine learning capabilities into your applications',
     icon: '🤖',
@@ -201,21 +201,25 @@ export const workProcess = [
 
 export const whyChooseMe = [
   {
+    id: 'experience',
     title: '4+ Years Experience',
     description: 'Proven track record delivering high-quality projects',
     icon: '📚',
   },
   {
+    id: 'modernStack',
     title: 'Modern Tech Stack',
     description: 'Using cutting-edge technologies and best practices',
     icon: '⚡',
   },
   {
+    id: 'communication',
     title: 'Clear Communication',
     description: 'Regular updates and transparent project management',
     icon: '💬',
   },
   {
+    id: 'satisfaction',
     title: '100% Satisfaction',
     description: 'Committed to delivering results that exceed expectations',
     icon: '⭐',
