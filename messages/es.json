@@ -80,11 +80,41 @@
     }
   },
   "projects": {
-    "title": "Proyectos Destacados",
-    "subtitle": "Construyendo soluciones impactantes",
+    "badge": "Portafolio",
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "subtitle": "Una selección de proyectos que he construido - desde plataformas e-commerce hasta herramientas impulsadas por IA y todo lo demás",
+    "showing": "Mostrando",
+    "project": "proyecto",
+    "projects": "proyectos",
     "viewProject": "Ver Proyecto",
     "viewCode": "Ver Código",
-    "technologies": "Tecnologías Utilizadas"
+    "technologies": "Tecnologías Utilizadas",
+    "categories": {
+      "all": "Todos los Proyectos",
+      "web": "Aplicaciones Web",
+      "mobile": "Móvil",
+      "ai": "IA/ML",
+      "saas": "SaaS",
+      "ecommerce": "E-Commerce"
+    },
+    "emptyState": {
+      "title": "No se encontraron proyectos",
+      "subtitle": "Intenta seleccionar una categoría diferente"
+    },
+    "stats": {
+      "totalProjects": "Total de Proyectos",
+      "clientsServed": "Clientes Atendidos",
+      "successRate": "Tasa de Éxito",
+      "yearsBuilding": "Años Construyendo"
+    },
+    "modal": {
+      "aboutProject": "Sobre el Proyecto",
+      "keyHighlights": "Puntos Clave",
+      "technologiesUsed": "Tecnologías Utilizadas",
+      "viewLiveDemo": "Ver Demo en Vivo",
+      "viewOnGithub": "Ver en GitHub"
+    }
   },
   "services": {
     "title": "Servicios",

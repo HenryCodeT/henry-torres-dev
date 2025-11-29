@@ -80,11 +80,41 @@
     }
   },
   "projects": {
-    "title": "Featured Projects",
-    "subtitle": "Building impactful solutions",
+    "badge": "Portfolio",
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "subtitle": "A selection of projects I've built - from e-commerce platforms to AI-powered tools and everything in between",
+    "showing": "Showing",
+    "project": "project",
+    "projects": "projects",
     "viewProject": "View Project",
     "viewCode": "View Code",
-    "technologies": "Technologies Used"
+    "technologies": "Technologies Used",
+    "categories": {
+      "all": "All Projects",
+      "web": "Web Apps",
+      "mobile": "Mobile",
+      "ai": "AI/ML",
+      "saas": "SaaS",
+      "ecommerce": "E-Commerce"
+    },
+    "emptyState": {
+      "title": "No projects found",
+      "subtitle": "Try selecting a different category"
+    },
+    "stats": {
+      "totalProjects": "Total Projects",
+      "clientsServed": "Clients Served",
+      "successRate": "Success Rate",
+      "yearsBuilding": "Years Building"
+    },
+    "modal": {
+      "aboutProject": "About the Project",
+      "keyHighlights": "Key Highlights",
+      "technologiesUsed": "Technologies Used",
+      "viewLiveDemo": "View Live Demo",
+      "viewOnGithub": "View on GitHub"
+    }
   },
   "services": {
     "title": "Services",

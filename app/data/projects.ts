@@ -151,12 +151,12 @@ export const projects: Project[] = [
 ];
 
 export const projectCategories = [
-  { id: 'all', label: 'All Projects', icon: '🎯' },
-  { id: 'web', label: 'Web Apps', icon: '🌐' },
-  { id: 'mobile', label: 'Mobile', icon: '📱' },
-  { id: 'ai', label: 'AI/ML', icon: '🤖' },
-  { id: 'saas', label: 'SaaS', icon: '💼' },
-  { id: 'ecommerce', label: 'E-Commerce', icon: '🛒' },
+  { id: 'all', icon: '🎯' },
+  { id: 'web', icon: '🌐' },
+  { id: 'mobile', icon: '📱' },
+  { id: 'ai', icon: '🤖' },
+  { id: 'saas', icon: '💼' },
+  { id: 'ecommerce', icon: '🛒' },
 ];
 
 export const projectTags = [
