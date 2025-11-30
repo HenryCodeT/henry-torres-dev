@@ -85,8 +85,17 @@ export default function Mountain({ className = '' }: MountainProps) {
       {/* Clouds */}
       <motion.g
         initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 0.4 }}
-        transition={{ duration: 1, delay: 0.5 }}
+        animate={{
+          x: [0, 30, 0],
+          y: [0, -10, 0],
+          opacity: [0.4, 0.5, 0.4]
+        }}
+        transition={{
+          duration: 4,
+          delay: 0.5,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
       >
         <ellipse cx="150" cy="120" rx="50" ry="25" fill="white" />
         <ellipse cx="180" cy="115" rx="40" ry="20" fill="white" />
@@ -95,8 +104,17 @@ export default function Mountain({ className = '' }: MountainProps) {
 
       <motion.g
         initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 0.3 }}
-        transition={{ duration: 2.5, delay: 0.7 }}
+        animate={{
+          x: [0, -40, 0],
+          y: [0, 8, 0],
+          opacity: [0.3, 0.4, 0.3]
+        }}
+        transition={{
+          duration: 5,
+          delay: 0.7,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
       >
         <ellipse cx="600" cy="150" rx="60" ry="30" fill="white" />
         <ellipse cx="640" cy="145" rx="45" ry="22" fill="white" />
