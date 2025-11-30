@@ -141,7 +141,7 @@ const ProjectsSection = memo(function ProjectsSection() {
               className={`px-5 py-2.5 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category.id
                   ? 'bg-weaving-pink text-white shadow-lg shadow-weaving-pink/30'
-                  : 'bg-white text-foreground border border-stone/20 hover:border-weaving-pink hover:text-weaving-pink'
+                  : 'bg-background text-foreground border border-stone/20 hover:border-weaving-pink hover:text-weaving-pink'
               }`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}

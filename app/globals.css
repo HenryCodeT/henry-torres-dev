@@ -30,6 +30,9 @@
   --muted: 40 30% 88%;
   --muted-foreground: 24 20% 35%;
 
+  /* Card background - Light Mode */
+  --card-bg: 40 45% 94%;
+
   /* Semantic colors */
   --primary: var(--terracotta);
   --primary-foreground: 0 0% 100%;
@@ -74,6 +77,9 @@
   --color-stone-dark: hsl(var(--stone-dark));
   --color-mountain: hsl(var(--mountain));
 
+  /* Card background */
+  --color-card-bg: hsl(var(--card-bg));
+
   /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -101,6 +107,9 @@
     --stone: 40 25% 55%;
     --stone-light: 40 30% 25%;
     --stone-dark: 40 50% 78%;
+
+    /* Card background - Dark Mode */
+    --card-bg: 24 35% 12%;
   }
 }
 
@@ -125,6 +134,9 @@
   --stone: 40 25% 55%;
   --stone-light: 40 30% 25%;
   --stone-dark: 40 50% 78%;
+
+  /* Card background - Dark Mode */
+  --card-bg: 24 35% 12%;
 }
 
 /* Reduced motion support */

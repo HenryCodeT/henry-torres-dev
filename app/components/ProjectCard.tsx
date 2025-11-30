@@ -101,7 +101,7 @@ export default function ProjectCard({ project, index, onViewDetails }: ProjectCa
           <div className="absolute bottom-4 left-4 right-4">
             <motion.button
               onClick={() => onViewDetails(project)}
-              className="w-full py-2 bg-white text-foreground rounded-full font-medium flex items-center justify-center gap-2 hover:bg-stone-light transition-colors"
+              className="w-full py-2 bg-card-bg text-foreground rounded-full font-medium flex items-center justify-center gap-2 hover:bg-stone-light transition-colors border border-stone/10"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
@@ -124,7 +124,7 @@ export default function ProjectCard({ project, index, onViewDetails }: ProjectCa
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 bg-card-bg">
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-3">
           {project.tags.slice(0, 3).map((tag, idx) => (
