@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
   id: string;
@@ -164,7 +166,55 @@ export default function LlamitaChatI18n() {
                         <span className="text-xs font-semibold text-terracotta">Llamita</span>
                       </div>
                     )}
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    {message.role === 'assistant' ? (
+                      <div className="text-sm prose prose-sm dark:prose-invert max-w-none">
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                            ul: ({ children }) => <ul className="list-disc ml-4 mb-2 space-y-1">{children}</ul>,
+                            ol: ({ children }) => <ol className="list-decimal ml-4 mb-2 space-y-1">{children}</ol>,
+                            li: ({ children }) => <li className="text-sm">{children}</li>,
+                            strong: ({ children }) => <strong className="font-semibold text-terracotta dark:text-weaving-pink">{children}</strong>,
+                            em: ({ children }) => <em className="italic">{children}</em>,
+                            code: ({ className, children }) => {
+                              const isInline = !className;
+                              return isInline ? (
+                                <code className="bg-stone-light/50 dark:bg-gray-600 px-1.5 py-0.5 rounded text-xs font-mono text-terracotta dark:text-sky-blue">
+                                  {children}
+                                </code>
+                              ) : (
+                                <code className={`${className} block bg-stone-light/70 dark:bg-gray-900 p-2 rounded text-xs font-mono overflow-x-auto`}>
+                                  {children}
+                                </code>
+                              );
+                            },
+                            a: ({ href, children }) => (
+                              <a
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-terracotta dark:text-sky-blue underline hover:no-underline"
+                              >
+                                {children}
+                              </a>
+                            ),
+                            h1: ({ children }) => <h1 className="text-base font-bold mb-2 text-terracotta dark:text-weaving-pink">{children}</h1>,
+                            h2: ({ children }) => <h2 className="text-sm font-bold mb-1 text-terracotta dark:text-weaving-pink">{children}</h2>,
+                            h3: ({ children }) => <h3 className="text-sm font-semibold mb-1 text-terracotta dark:text-weaving-pink">{children}</h3>,
+                            blockquote: ({ children }) => (
+                              <blockquote className="border-l-2 border-terracotta dark:border-weaving-pink pl-3 italic text-muted-foreground dark:text-gray-400">
+                                {children}
+                              </blockquote>
+                            ),
+                          }}
+                        >
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    )}
                     <p className={`text-xs mt-1 ${message.role === 'user' ? 'text-white/70' : 'text-muted-foreground dark:text-gray-400'}`}>
                       {message.timestamp.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })}
                     </p>

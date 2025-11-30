@@ -37,7 +37,7 @@ const KNOWLEDGE_CONFIG = {
   contact: {
     file: 'contact.md',
     keywords: {
-      en: ['contact', 'reach', 'email', 'message', 'talk', 'discuss', 'availability', 'available', 'hire'],
+      en: ['contact', 'reach', 'email', 'message', 'talk', 'discuss', 'availability', 'available', 'hire', 'linkedin', 'github'],
       es: ['contacto', 'contactar', 'correo', 'email', 'mensaje', 'hablar', 'discutir', 'disponibilidad', 'disponible', 'contratar'],
     },
   },
