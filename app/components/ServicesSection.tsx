@@ -172,7 +172,7 @@ const ServicesSection = memo(function ServicesSection() {
 
         {/* Why Choose Me */}
         <motion.div
-          className="bg-gradient-to-br from-white to-stone-light rounded-3xl p-8 md:p-12 shadow-xl"
+          className="bg-card-bg rounded-3xl p-8 md:p-12 shadow-xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -191,7 +191,7 @@ const ServicesSection = memo(function ServicesSection() {
             {whyChooseMe.map((reason, index) => (
               <motion.div
                 key={reason.id}
-                className="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow"
+                className="text-center p-6 bg-muted rounded-2xl shadow-md hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -281,7 +281,7 @@ function ServiceCard({
   return (
     <motion.div
       ref={ref}
-      className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
+      className={`relative bg-card-bg rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden ${
         service.popular ? 'ring-2 ring-weaving-purple' : ''
       }`}
       initial={{ opacity: 0, y: 30 }}
@@ -453,7 +453,7 @@ function ProcessStep({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow h-full">
+      <div className="bg-card-bg rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow h-full">
         {/* Step Number */}
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-gradient-to-br from-terracotta to-weaving-pink text-white rounded-full flex items-center justify-center text-xl font-bold shadow-lg">
