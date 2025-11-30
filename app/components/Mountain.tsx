@@ -86,7 +86,7 @@ export default function Mountain({ className = '' }: MountainProps) {
       <motion.g
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 0.4 }}
-        transition={{ duration: 2, delay: 0.5 }}
+        transition={{ duration: 1, delay: 0.5 }}
       >
         <ellipse cx="150" cy="120" rx="50" ry="25" fill="white" />
         <ellipse cx="180" cy="115" rx="40" ry="20" fill="white" />
@@ -104,9 +104,9 @@ export default function Mountain({ className = '' }: MountainProps) {
 
       {/* Mountain Layers - Bottom to Top */}
 
-      {/* Foundation Layer (widest) */}
+      {/* Foundation Layer (triangle base) - Level 1 */}
       <motion.path
-        d="M 0 600 L 0 400 L 400 200 L 800 400 L 800 600 Z"
+        d="M 100 600 L 400 200 L 700 600 Z"
         fill="url(#foundationGradient)"
         stroke="hsl(14, 45%, 30%)"
         strokeWidth="2"
@@ -116,9 +116,9 @@ export default function Mountain({ className = '' }: MountainProps) {
         transition={{ duration: 0.8, delay: 0.2 }}
       />
 
-      {/* Base Layer */}
+      {/* Base Layer (trapezoid) - Level 2 */}
       <motion.path
-        d="M 50 600 L 100 450 L 400 250 L 700 450 L 750 600 Z"
+        d="M 175 500 L 250 400 L 550 400 L 625 500 Z"
         fill="url(#baseGradient)"
         stroke="hsl(45, 90%, 45%)"
         strokeWidth="2"
@@ -128,9 +128,9 @@ export default function Mountain({ className = '' }: MountainProps) {
         transition={{ duration: 0.8, delay: 0.4 }}
       />
 
-      {/* Mid-Mountain Layer */}
+      {/* Mid-Mountain Layer (trapezoid) - Level 3 */}
       <motion.path
-        d="M 150 600 L 200 480 L 400 300 L 600 480 L 650 600 Z"
+        d="M 250 400 L 275 330 L 525 330 L 550 400 Z"
         fill="url(#midGradient)"
         stroke="hsl(340, 65%, 40%)"
         strokeWidth="2"
@@ -140,9 +140,9 @@ export default function Mountain({ className = '' }: MountainProps) {
         transition={{ duration: 0.8, delay: 0.6 }}
       />
 
-      {/* Summit Layer */}
+      {/* Summit Layer (trapezoid) - Level 4 */}
       <motion.path
-        d="M 250 600 L 300 500 L 400 350 L 500 500 L 550 600 Z"
+        d="M 275 330 L 325 280 L 475 280 L 525 330 Z"
         fill="url(#summitGradient)"
         stroke="hsl(200, 70%, 35%)"
         strokeWidth="2"
@@ -152,9 +152,9 @@ export default function Mountain({ className = '' }: MountainProps) {
         transition={{ duration: 0.8, delay: 0.8 }}
       />
 
-      {/* Peak (top) */}
+      {/* Peak (trapezoid) - Level 5 */}
       <motion.path
-        d="M 330 550 L 360 450 L 400 380 L 440 450 L 470 550 Z"
+        d="M 325 280 L 380 200 L 420 200 L 475 280 Z"
         fill="url(#peakGradient)"
         stroke="hsl(280, 50%, 30%)"
         strokeWidth="2"
@@ -166,18 +166,18 @@ export default function Mountain({ className = '' }: MountainProps) {
 
       {/* Snow cap on peak */}
       <motion.path
-        d="M 380 410 L 400 380 L 420 410 Z"
+        d="M 375 200 L 400 180 L 425 200 Z"
         fill="white"
         opacity="0.9"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.9 }}
         transition={{ duration: 0.5, delay: 1.2 }}
-        style={{ transformOrigin: '400px 395px' }}
+        style={{ transformOrigin: '400px 205px' }}
       />
 
       {/* Decorative elements */}
       {/* Trees on foundation */}
-      {[100, 200, 300, 500, 600, 700].map((x, i) => (
+      {[150, 200, 300, 500, 600, 650].map((x, i) => (
         <motion.g
           key={`tree-${i}`}
           initial={{ scale: 0, opacity: 0 }}
@@ -214,23 +214,23 @@ export default function Mountain({ className = '' }: MountainProps) {
           stiffness: 200,
           delay: 1.5,
         }}
-        style={{ transformOrigin: '400px 380px' }}
+        style={{ transformOrigin: '400px 180px' }}
       >
         {/* Flag pole */}
         <line
           x1="400"
-          y1="380"
+          y1="180"
           x2="400"
-          y2="350"
+          y2="130"
           stroke="hsl(0, 0%, 30%)"
-          strokeWidth="2"
+          strokeWidth="3"
         />
         {/* Flag */}
         <motion.path
-          d="M 400 350 L 430 360 L 400 370 Z"
+          d="M 400 130 L 450 145 L 400 160 Z"
           fill="hsl(14, 45%, 45%)"
-          animate={{ d: ['M 400 350 L 430 360 L 400 370 Z', 'M 400 350 L 435 360 L 400 370 Z', 'M 400 350 L 430 360 L 400 370 Z'] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          animate={{ d: ['M 400 130 L 450 145 L 400 160 Z', 'M 400 130 L 475 145 L 400 160 Z', 'M 400 130 L 450 145 L 400 160 Z'] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         />
       </motion.g>
     </svg>
