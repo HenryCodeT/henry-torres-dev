@@ -1,132 +1,160 @@
-# Services Offered
+Here is your updated **Services Offered** section **without pricing**, written in **English**, and aligned with your real profile:
+✔ **3 years of experience**
+✔ **Your real tech stack** (Next.js, TypeScript, Python, Automation, AI, n8n, Zapier, Make, Web Scraping, etc.)
+✔ Clean, professional, portfolio-ready
 
-Henry Torres offers comprehensive software development services with transparent pricing and timelines.
+---
 
-## Web Development
-Custom web applications built with modern technologies for scalability and performance.
+# **Services Offered**
 
-**Pricing:** Starting at $5,000
-**Timeline:** 4-8 weeks
+Henry Torres provides modern software development, automation, and AI-driven solutions with a strong focus on performance, scalability, and clean engineering.
 
-**Features:**
-- Responsive design for all devices
-- SEO optimization and performance tuning
-- Modern frameworks (React, Next.js)
-- Progressive Web Apps (PWA)
-- API integration and development
+---
 
-**Technologies:** Next.js, React, TypeScript, Tailwind CSS
+## **Web Development**
 
-**Deliverables:**
-- Fully functional web application
-- Source code and documentation
-- 3 months of free support
-- Deployment and hosting setup
+High-quality, responsive, and scalable websites and web applications built using modern frontend technologies.
 
-## Full-Stack Development (MOST POPULAR)
-End-to-end solutions from database design to frontend implementation.
+**What’s Included:**
 
-**Pricing:** Starting at $10,000
-**Timeline:** 8-12 weeks
+* Responsive and mobile-first interfaces
+* High-performance and SEO-optimized builds
+* Modern and modular component architecture
+* API integration and backend connectivity
+* Authentication systems (OAuth, JWT, Auth.js)
 
-**Features:**
-- Complete frontend and backend development
-- Database design and optimization
-- RESTful and GraphQL APIs
-- Real-time features with WebSockets
-- Cloud deployment and scaling
-
-**Technologies:** Next.js, Node.js, PostgreSQL, AWS
+**Technologies:**
+Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL
 
 **Deliverables:**
-- Full-stack application
-- Database schema and migrations
-- API documentation
-- CI/CD pipeline setup
 
-## AI Integration
-Integrate AI and machine learning capabilities into your applications.
+* Fully functional production-ready web app
+* Clean and well-structured codebase
+* Deployment setup (Vercel, AWS, or custom)
+* Documentation and support during launch
 
-**Pricing:** Starting at $7,500
-**Timeline:** 6-10 weeks
+---
 
-**Features:**
-- LLM integration (GPT, Claude, etc.)
-- Custom AI workflows and automation
-- RAG systems for knowledge bases
-- AI-powered features and chatbots
-- Fine-tuning and prompt engineering
+## **Full-Stack Development**
 
-**Technologies:** OpenAI, Anthropic, LangChain, Vector DBs
+End-to-end application development, from the database and backend architecture to a polished, user-friendly frontend.
 
-**Deliverables:**
-- AI-powered features
-- Integration documentation
-- Training and knowledge transfer
-- Optimization and monitoring
+**What’s Included:**
 
-## Technical Consulting
-Expert guidance on architecture, technology choices, and best practices.
+* Frontend + backend implementation
+* Database schema design
+* REST or GraphQL APIs
+* Authentication and role-based permissions
+* Real-time features (notifications, dashboards, sockets)
+* Cloud-based deployments and environment setup
 
-**Pricing:** $150/hour
-**Timeline:** Flexible
-
-**Features:**
-- Architecture review and recommendations
-- Technology stack evaluation
-- Code review and optimization
-- Performance audits
-- Team training and mentorship
+**Technologies:**
+Next.js, TypeScript, Node.js, PostgreSQL, Prisma, Docker, AWS
 
 **Deliverables:**
-- Detailed technical report
-- Architecture diagrams
-- Actionable recommendations
-- Follow-up sessions
 
-## Maintenance & Support
-Ongoing support and maintenance for your web applications.
+* Complete full-stack application
+* API + database documentation
+* CI/CD pipelines setup (GitHub Actions, Vercel, etc.)
+* Production deployment and launch assistance
 
-**Pricing:** Starting at $2,000/month
-**Timeline:** Ongoing
+---
 
-**Features:**
-- Bug fixes and updates
-- Security patches and monitoring
-- Performance optimization
-- Feature enhancements
-- 24/7 emergency support available
+## **AI Integration & Automation**
 
-**Deliverables:**
-- Monthly status reports
-- Regular updates and patches
-- Performance metrics
-- Priority support access
+Enhance your platform or workflow using intelligent automations and AI-powered systems.
 
-## E-Commerce Solutions
-Complete e-commerce platforms with payment integration and inventory management.
+**What’s Included:**
 
-**Pricing:** Starting at $12,000
-**Timeline:** 10-16 weeks
+* Integration with LLMs (OpenAI, Claude, Gemini)
+* AI chatbots and assistants
+* RAG systems (Retrieve & Generate)
+* Document parsing and automated content generation
+* Business process automation
+* Prompt engineering and optimization
 
-**Features:**
-- Custom e-commerce platforms
-- Payment gateway integration
-- Inventory management systems
-- Admin dashboards
-- Analytics and reporting
-
-**Technologies:** Next.js, Stripe, PostgreSQL, Redis
+**Technologies:**
+OpenAI, Anthropic, Python, LangChain, ChromaDB, Pinecone
 
 **Deliverables:**
-- Complete e-commerce platform
-- Payment integration
-- Admin panel
-- Analytics dashboard
 
-## Why Choose Henry
+* AI-powered features integrated into existing systems
+* Documentation for workflows and usage
+* Model and prompt optimization
+* Knowledge transfer and team onboarding
 
-- **4+ Years Experience** - Proven track record delivering high-quality projects
-- **Modern Tech Stack** - Using cutting-edge technologies and best practices
-- **Clear Communication** - Regular updates and transparent project management
-- **100% Satisfaction** - Committed to delivering results that exceed expectations
+---
+
+## **No-Code / Low-Code Automation (n8n, Zapier, Make)**
+
+Fast and efficient workflow automation using visual automation tools.
+
+**What’s Included:**
+
+* Automation workflows for business operations
+* Integration with CRM, email, payment systems, and internal tools
+* Multi-step workflows (conditions, loops, routers)
+* API and webhook connections
+* Data routing and transformation
+
+**Platforms:**
+n8n, Zapier, Make, Notion, Airtable, Google Workspace, Slack
+
+**Deliverables:**
+
+* Fully automated workflows
+* Visual flow diagrams
+* Documentation and training
+* Support for adjustments or scaling
+
+---
+
+## **Technical Consulting & Architecture**
+
+Guidance for technical decisions, system design, and best practices.
+
+**What’s Included:**
+
+* Architecture evaluations
+* Code reviews & performance audits
+* Tech stack recommendations
+* Scaling and infrastructure planning
+* Startup MVP planning
+
+**Deliverables:**
+
+* Actionable reports
+* Architecture diagrams
+* Implementation roadmap
+* Follow-up sessions
+
+---
+
+## **Maintenance & Support**
+
+Ongoing support for applications already in production.
+
+**What’s Included:**
+
+* Bug fixes and improvements
+* Server and performance monitoring
+* Security patching
+* New feature development
+* Priority support for active clients
+
+**Deliverables:**
+
+* Monthly update reports
+* Performance metrics
+* Regular optimizations
+
+---
+
+# **Why Work With Henry**
+
+* **3+ years of experience** in web development, automation, and AI solutions
+* Strong expertise with **modern technologies** (Next.js, TypeScript, Python, AI)
+* Reliable communication and async-friendly workflow
+* Professional approach focused on clean code and long-term maintainability
+* Experience working with clients across different time zones
+

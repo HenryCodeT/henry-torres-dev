@@ -1,54 +1,85 @@
-# Technical Skills - Montaña del Stack
+# **Technical Skills**
 
-Henry's technical skills are organized like a mountain, representing expertise levels:
+Henry’s technical experience is structured into three clear mastery levels plus a foundational layer that supports all development.
 
-## Peak - Expert Level (6,000m)
-The pinnacle of expertise:
-- **Next.js** - Advanced server-side rendering, API routes, and App Router
-- **React** - Complex state management, hooks, and performance optimization
-- **TypeScript** - Type-safe development and advanced TypeScript patterns
-- **AI Integration** - LLM integration, RAG systems, and prompt engineering
+---
 
-## Summit - Advanced (5,000m)
-Advanced proficiency:
-- **Node.js** - Backend development and API creation
-- **Tailwind CSS** - Utility-first styling and custom design systems
-- **PostgreSQL** - Database design and optimization
-- **GraphQL** - API design and implementation
-- **Python** - Automation, scripting, and data processing
+## 🏔 **Expert Level**
 
-## High Camp - Proficient (4,000m)
-Strong working knowledge:
-- **AWS** - Cloud infrastructure and deployment
-- **Docker** - Containerization and orchestration
-- **Redis** - Caching and session management
-- **MongoDB** - NoSQL database design
-- **REST APIs** - RESTful service architecture
-- **Git** - Version control and collaboration
+Technologies used daily with deep mastery.
 
-## Base Camp - Competent (3,000m)
-Solid foundation:
-- **CI/CD** - Automated deployment pipelines
-- **Testing** - Jest, Cypress, unit and integration testing
-- **Stripe** - Payment integration
-- **WebSockets** - Real-time communication
-- **Prisma** - ORM and database management
-- **Vercel** - Deployment and hosting
+* **React** — React 19, hooks, performance optimization
+* **Next.js** — App Router, SSR/ISR, API Routes
+* **TypeScript** — Advanced types, strict mode
+* **JavaScript (ES6+)** — Modern patterns and architecture
 
-## Foundation - Core Skills (2,000m)
-Essential building blocks:
-- **HTML/CSS** - Semantic markup and modern CSS
-- **JavaScript** - ES6+ features and best practices
-- **Responsive Design** - Mobile-first development
-- **SEO** - Search engine optimization
-- **Performance** - Web vitals and optimization
-- **Accessibility** - WCAG compliance and inclusive design
+---
 
-## Categories
-Henry's skills span multiple categories:
-- **Frontend Development** - React, Next.js, TypeScript, Tailwind CSS
-- **Backend Development** - Node.js, PostgreSQL, GraphQL, REST APIs
-- **DevOps & Cloud** - AWS, Docker, CI/CD, Vercel
-- **AI & ML** - LLM integration, RAG systems, OpenAI, Anthropic
-- **Mobile Development** - React Native, responsive web apps
-- **Tools & Workflow** - Git, VS Code, npm, testing frameworks
+## ⛰ **Advanced Level**
+
+Strong proficiency and frequent use in production.
+
+* **Node.js** — Backend APIs, Express
+* **Tailwind CSS** — Design systems & custom configuration
+* **PostgreSQL** — Schema design & optimization
+* **UI Systems** — Shadcn UI, Material UI
+* **.NET / C#** — API development
+* **Prisma** — ORM & migrations
+* **MongoDB** — NoSQL schema design
+* **Docker** — Containers & deployments
+
+---
+
+## 🏕 **Proficient Level**
+
+Good working knowledge; used in real projects when needed — including **all AI-related skills**.
+
+### **Backend, DevOps & Testing**
+
+* **AWS** — S3, EC2, CloudFront, Lambda
+* **Redis** — Caching, pub/sub
+* **Kubernetes** — Deployments & services
+* **Python** — Automation
+* **CI/CD** — GitHub Actions, Azure DevOps
+* **Jest** — Unit and integration tests
+* **WebSockets** — Real-time communication
+* **Figma** — UI design
+* **Agile** — Scrum workflow
+
+### **AI & Automation Skills (Moved Here)**
+
+* **RAG Systems** — Embeddings, vector search, pipelines
+* **AI Agents** — Tool calling, structured actions
+* **LangChain** — Chains, agents, tools
+* **OpenAI SDK** — GPT models, assistants
+* **Anthropic (Claude)** — Reasoning & prompt engineering
+* **Gemini** — Multimodal tools
+* **MCP (Model Context Protocol)** — Tool-driven AI apps
+* **No-Code Automation:**
+
+  * **n8n**
+  * **Zapier**
+  * **Make.com**
+
+---
+
+## 🧱 **Foundational Level (Core Skills)**
+
+The base layer of Henry’s development expertise.
+
+* **HTML5 / CSS3** — Semantic, modern, clean
+* **Responsive Design** — Mobile-first approach
+* **Accessibility (A11y)** — WCAG practices
+* **SEO Basics** — Performance & on-page SEO
+* **Performance Optimization** — Core Web Vitals
+* **Version Control (Git)** — Branching flow
+
+---
+
+## **Skill Categories**
+
+* **Frontend:** React, Next.js, TS, Tailwind
+* **Backend:** Node.js, PostgreSQL, MongoDB, Prisma
+* **DevOps:** Docker, CI/CD, AWS
+* **AI & Automation:** RAG, Agents, LangChain, OpenAI, Zapier, n8n
+* **Foundational:** HTML, CSS, JS, SEO, responsive design

@@ -329,20 +329,47 @@
     }
   },
   "contact": {
-    "title": "Contáctame",
-    "subtitle": "Construyamos algo increíble juntos",
-    "name": "Tu Nombre",
-    "email": "Tu Email",
-    "message": "Tu Mensaje",
-    "send": "Enviar Mensaje",
-    "sending": "Enviando...",
-    "success": "¡Mensaje enviado exitosamente!",
-    "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
-    "location": "Ubicación",
-    "availability": "Disponibilidad",
-    "availabilityStatus": "Disponible para nuevos proyectos",
-    "responseTime": "Tiempo de Respuesta",
-    "responseTimeValue": "Dentro de 24 horas"
+    "badge": "Contáctame",
+    "title": "Construyamos",
+    "titleHighlight": "Algo Increíble",
+    "subtitle": "¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte a hacer realidad tus ideas",
+    "form": {
+      "title": "Envíame un Mensaje",
+      "nameLabel": "Tu Nombre *",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Correo Electrónico *",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "subjectLabel": "Asunto *",
+      "subjectPlaceholder": "Consulta de Proyecto",
+      "messageLabel": "Mensaje *",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "successMessage": "¡Mensaje enviado con éxito! Me pondré en contacto pronto.",
+      "errorMessage": "¡Ups! Algo salió mal. Por favor, inténtalo de nuevo o escríbeme directamente."
+    },
+    "info": {
+      "emailTitle": "Correo",
+      "emailValue": "your.email@example.com",
+      "locationTitle": "Ubicación",
+      "locationValue": "Cusco, Perú 🇵🇪",
+      "locationSubtitle": "Disponible para trabajo remoto en todo el mundo",
+      "responseTimeTitle": "Tiempo de Respuesta",
+      "responseTimeValue": "Dentro de 24 horas",
+      "responseTimeSubtitle": "¡Generalmente mucho más rápido!"
+    },
+    "social": {
+      "title": "Conéctate Conmigo"
+    },
+    "availability": {
+      "status": "Actualmente Disponible",
+      "message": "Actualmente estoy aceptando nuevos proyectos y colaboraciones. ¡Creemos algo increíble juntos!",
+      "services": {
+        "webDev": "Desarrollo Web",
+        "ai": "Integración de IA",
+        "consulting": "Consultoría"
+      }
+    }
   },
   "footer": {
     "rights": "Todos los derechos reservados",

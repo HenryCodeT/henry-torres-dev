@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
 import * as z from 'zod';
 
 const contactSchema = z.object({
@@ -67,6 +68,7 @@ const socialLinks = [
 ];
 
 export default function ContactSection() {
+  const t = useTranslations('contact');
   const sectionRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -139,19 +141,18 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
           >
-            Get In Touch
+            {t('badge')}
           </motion.span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Let's Build{' '}
+            {t('title')}{' '}
             <span className="bg-gradient-to-r from-sky-blue via-weaving-pink to-terracotta bg-clip-text text-transparent">
-              Something Amazing
+              {t('titleHighlight')}
             </span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind? Let's discuss how I can help bring your ideas
-            to life
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -165,21 +166,21 @@ export default function ContactSection() {
           >
             <div className="bg-white rounded-3xl shadow-xl p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">
-                Send Me a Message
+                {t('form.title')}
               </h3>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Your Name *
+                    {t('form.nameLabel')}
                   </label>
                   <input
                     {...register('name')}
                     type="text"
                     id="name"
                     className="w-full px-4 py-3 border border-stone/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-blue focus:border-transparent transition-all"
-                    placeholder="John Doe"
+                    placeholder={t('form.namePlaceholder')}
                   />
                   {errors.name && (
                     <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
@@ -189,14 +190,14 @@ export default function ContactSection() {
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
+                    {t('form.emailLabel')}
                   </label>
                   <input
                     {...register('email')}
                     type="email"
                     id="email"
                     className="w-full px-4 py-3 border border-stone/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-blue focus:border-transparent transition-all"
-                    placeholder="john@example.com"
+                    placeholder={t('form.emailPlaceholder')}
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -206,14 +207,14 @@ export default function ContactSection() {
                 {/* Subject Field */}
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject *
+                    {t('form.subjectLabel')}
                   </label>
                   <input
                     {...register('subject')}
                     type="text"
                     id="subject"
                     className="w-full px-4 py-3 border border-stone/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-blue focus:border-transparent transition-all"
-                    placeholder="Project Inquiry"
+                    placeholder={t('form.subjectPlaceholder')}
                   />
                   {errors.subject && (
                     <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
@@ -223,14 +224,14 @@ export default function ContactSection() {
                 {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
+                    {t('form.messageLabel')}
                   </label>
                   <textarea
                     {...register('message')}
                     id="message"
                     rows={6}
                     className="w-full px-4 py-3 border border-stone/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-blue focus:border-transparent transition-all resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder={t('form.messagePlaceholder')}
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
@@ -245,7 +246,7 @@ export default function ContactSection() {
                   whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
-                  {isSubmitting ? (
+  {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
                       <svg
                         className="animate-spin h-5 w-5"
@@ -267,10 +268,10 @@ export default function ContactSection() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         />
                       </svg>
-                      Sending...
+                      {t('form.sending')}
                     </span>
                   ) : (
-                    'Send Message'
+                    t('form.submit')
                   )}
                 </motion.button>
 
@@ -293,7 +294,7 @@ export default function ContactSection() {
                       >
                         <path d="M5 13l4 4L19 7" />
                       </svg>
-                      Message sent successfully! I'll get back to you soon.
+                      {t('form.successMessage')}
                     </p>
                   </motion.div>
                 )}
@@ -306,7 +307,7 @@ export default function ContactSection() {
                     className="p-4 bg-red-50 border border-red-200 rounded-xl"
                   >
                     <p className="text-red-800 text-sm font-medium">
-                      Oops! Something went wrong. Please try again or email me directly.
+                      {t('form.errorMessage')}
                     </p>
                   </motion.div>
                 )}
@@ -326,27 +327,27 @@ export default function ContactSection() {
             <div className="space-y-4">
               <ContactInfoCard
                 icon="📧"
-                title="Email"
-                value="your.email@example.com"
-                link="mailto:your.email@example.com"
+                title={t('info.emailTitle')}
+                value={t('info.emailValue')}
+                link={`mailto:${t('info.emailValue')}`}
               />
               <ContactInfoCard
                 icon="📍"
-                title="Location"
-                value="Lima, Peru 🇵🇪"
-                subtitle="Available for remote work worldwide"
+                title={t('info.locationTitle')}
+                value={t('info.locationValue')}
+                subtitle={t('info.locationSubtitle')}
               />
               <ContactInfoCard
                 icon="⏰"
-                title="Response Time"
-                value="Within 24 hours"
-                subtitle="Usually much faster!"
+                title={t('info.responseTimeTitle')}
+                value={t('info.responseTimeValue')}
+                subtitle={t('info.responseTimeSubtitle')}
               />
             </div>
 
             {/* Social Links */}
             <div className="bg-white rounded-3xl shadow-xl p-8">
-              <h3 className="text-xl font-bold text-foreground mb-4">Connect With Me</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">{t('social.title')}</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -369,21 +370,20 @@ export default function ContactSection() {
             <div className="bg-gradient-to-br from-sky-blue to-weaving-pink p-8 rounded-3xl text-white shadow-xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
-                <span className="font-semibold">Currently Available</span>
+                <span className="font-semibold">{t('availability.status')}</span>
               </div>
               <p className="text-white/90 mb-4">
-                I'm currently accepting new projects and collaborations. Let's create
-                something amazing together!
+                {t('availability.message')}
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
-                  Web Development
+                  {t('availability.services.webDev')}
                 </span>
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
-                  AI Integration
+                  {t('availability.services.ai')}
                 </span>
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
-                  Consulting
+                  {t('availability.services.consulting')}
                 </span>
               </div>
             </div>

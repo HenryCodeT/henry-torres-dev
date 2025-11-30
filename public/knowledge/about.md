@@ -1,31 +1,53 @@
-# About Henry Torres
+# **About Henry Torres**
 
-## Professional Summary
-Henry Torres is a Full Stack Developer based in Lima, Peru, with over 4 years of experience building modern web applications. He specializes in React, Next.js, TypeScript, and AI integration, with a proven track record of delivering high-quality projects for clients worldwide.
+## **Professional Summary**
 
-## Location
-Based in Lima, Peru, Henry brings a unique Peruvian perspective to global software development projects. He works remotely with clients across different time zones.
+Henry Torres is a Full Stack Developer from Cusco, Peru, with **3 years of professional experience** building modern and scalable web applications. He specializes in **React, Next.js, TypeScript, .NET, and AI-driven workflows**, and has contributed to projects in education, SaaS, fintech, and multimodal AI evaluation. With a background in electronics and research, he brings strong problem-solving skills and a deep understanding of system behavior to every project.
 
-## Experience
-- **4+ Years** of professional software development experience
-- **50+ Projects** completed successfully
-- **100% Client Satisfaction** rate
-- Expertise in modern web technologies and AI integration
+---
 
-## Current Status
-Currently available for new projects and consulting opportunities. Typical response time is within 24 hours.
+## **Location & Time Zone**
 
-## Approach
-Henry follows a proven methodology:
-1. **Discovery** (1-2 days) - Understanding your needs and requirements
-2. **Planning** (2-3 days) - Creating detailed project plans and architecture
-3. **Development** - Building your solution with regular updates
-4. **Testing** (1-2 weeks) - Thorough QA and performance optimization
-5. **Launch** (3-5 days) - Deployment and team training
-6. **Support** (Ongoing) - Continuous maintenance and improvements
+Based in **Cusco, Peru (UTC-5 / Peru Standard Time)**, Henry works remotely with teams across Latin America, North America, and Europe, adapting smoothly to different schedules and collaboration styles.
 
-## Values
-- Clear communication with regular updates
-- Modern tech stack using cutting-edge technologies
-- Best practices and clean code
-- Results that exceed expectations
+---
+
+## **Experience**
+
+* **3+ years** of professional software development
+* Experience across **five companies**: Turing, FinFast, Freelance, GeoVictoria, and Escuela Global
+* Hands-on work in **frontend, backend, integrations, automation, debugging, and AI evaluation**
+* Contributed to system migrations, complete web platforms, API development, and performance optimization
+
+---
+
+## **Current Status**
+
+Currently open to opportunities involving:
+
+* Full Stack or Frontend Development
+* AI-assisted workflows and automation
+* System improvements, debugging, and refactoring
+* Integrations with third-party services or low-code tools
+
+Typical response time: **within the same day**.
+
+---
+
+## **Approach**
+
+1. **Discovery** – Understanding the problem, context, and goals
+2. **Planning** – Defining architecture, tasks, timelines, and dependencies
+3. **Development** – Building with continuous communication
+4. **Testing & Validation** – QA, unit tests, and integration checks
+5. **Deployment** – Using Vercel, Azure DevOps, GitHub Actions, or custom pipelines
+6. **Support** – Ongoing improvements and technical assistance
+
+---
+
+## **Values**
+
+* Clear and honest communication
+* Maintainable and scalable code
+* Consistent delivery and responsibility
+* Smart use of modern tools and AI
