@@ -1,12 +1,39 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 interface MountainProps {
   className?: string;
 }
 
 export default function Mountain({ className = '' }: MountainProps) {
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const [isNight, setIsNight] = useState(false);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now);
+      const hour = now.getHours();
+      setIsNight(hour >= 19 || hour < 6);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+  };
+
   return (
     <svg
       viewBox="0 0 800 600"
@@ -40,6 +67,17 @@ export default function Mountain({ className = '' }: MountainProps) {
           <stop offset="100%" stopColor="hsl(14, 45%, 35%)" stopOpacity="0.7" />
         </linearGradient>
 
+        {/* Sky gradients */}
+        <linearGradient id="daySkyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="hsl(200, 70%, 85%)" />
+          <stop offset="100%" stopColor="hsl(200, 70%, 95%)" />
+        </linearGradient>
+
+        <linearGradient id="nightSkyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="hsl(230, 45%, 15%)" />
+          <stop offset="100%" stopColor="hsl(230, 40%, 25%)" />
+        </linearGradient>
+
         {/* Shadow filter */}
         <filter id="dropShadow">
           <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
@@ -58,29 +96,83 @@ export default function Mountain({ className = '' }: MountainProps) {
       <motion.rect
         width="800"
         height="600"
-        fill="url(#skyGradient)"
+        fill={isNight ? "url(#nightSkyGradient)" : "url(#daySkyGradient)"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       />
 
-      <defs>
-        <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="hsl(200, 70%, 85%)" />
-          <stop offset="100%" stopColor="hsl(200, 70%, 95%)" />
-        </linearGradient>
-      </defs>
-
-      {/* Sun */}
-      <motion.circle
-        cx="700"
-        cy="100"
-        r="40"
-        fill="hsl(45, 100%, 65%)"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.6 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      />
+      {/* Sun or Moon */}
+      {isNight ? (
+        <>
+          {/* Moon */}
+          <motion.circle
+            cx="700"
+            cy="100"
+            r="40"
+            fill="hsl(50, 20%, 90%)"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.9 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          />
+          {/* Moon crater */}
+          <motion.circle
+            cx="690"
+            cy="95"
+            r="8"
+            fill="hsl(50, 20%, 80%)"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.5 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
+          <motion.circle
+            cx="710"
+            cy="110"
+            r="6"
+            fill="hsl(50, 20%, 80%)"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 0.5 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          />
+          {/* Stars */}
+          {[
+            { cx: 100, cy: 50, delay: 0.7 },
+            { cx: 200, cy: 80, delay: 0.8 },
+            { cx: 300, cy: 60, delay: 0.9 },
+            { cx: 500, cy: 70, delay: 1.0 },
+            { cx: 600, cy: 50, delay: 1.1 },
+            { cx: 150, cy: 150, delay: 1.2 },
+            { cx: 550, cy: 180, delay: 1.3 }
+          ].map((star, i) => (
+            <motion.circle
+              key={`star-${i}`}
+              cx={star.cx}
+              cy={star.cy}
+              r="2"
+              fill="white"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{
+                duration: 2,
+                delay: star.delay,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+          ))}
+        </>
+      ) : (
+        /* Sun */
+        <motion.circle
+          cx="700"
+          cy="100"
+          r="40"
+          fill="hsl(45, 100%, 65%)"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.6 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        />
+      )}
 
       {/* Clouds */}
       <motion.g
@@ -88,7 +180,7 @@ export default function Mountain({ className = '' }: MountainProps) {
         animate={{
           x: [0, 30, 0],
           y: [0, -10, 0],
-          opacity: [0.4, 0.5, 0.4]
+          opacity: isNight ? [0.2, 0.3, 0.2] : [0.4, 0.5, 0.4]
         }}
         transition={{
           duration: 4,
@@ -97,9 +189,9 @@ export default function Mountain({ className = '' }: MountainProps) {
           ease: 'easeInOut'
         }}
       >
-        <ellipse cx="150" cy="120" rx="50" ry="25" fill="white" />
-        <ellipse cx="180" cy="115" rx="40" ry="20" fill="white" />
-        <ellipse cx="120" cy="125" rx="35" ry="18" fill="white" />
+        <ellipse cx="150" cy="120" rx="50" ry="25" fill={isNight ? "hsl(230, 20%, 40%)" : "white"} />
+        <ellipse cx="180" cy="115" rx="40" ry="20" fill={isNight ? "hsl(230, 20%, 40%)" : "white"} />
+        <ellipse cx="120" cy="125" rx="35" ry="18" fill={isNight ? "hsl(230, 20%, 40%)" : "white"} />
       </motion.g>
 
       <motion.g
@@ -107,7 +199,7 @@ export default function Mountain({ className = '' }: MountainProps) {
         animate={{
           x: [0, -40, 0],
           y: [0, 8, 0],
-          opacity: [0.3, 0.4, 0.3]
+          opacity: isNight ? [0.15, 0.25, 0.15] : [0.3, 0.4, 0.3]
         }}
         transition={{
           duration: 5,
@@ -116,8 +208,8 @@ export default function Mountain({ className = '' }: MountainProps) {
           ease: 'easeInOut'
         }}
       >
-        <ellipse cx="600" cy="150" rx="60" ry="30" fill="white" />
-        <ellipse cx="640" cy="145" rx="45" ry="22" fill="white" />
+        <ellipse cx="600" cy="150" rx="60" ry="30" fill={isNight ? "hsl(230, 20%, 40%)" : "white"} />
+        <ellipse cx="640" cy="145" rx="45" ry="22" fill={isNight ? "hsl(230, 20%, 40%)" : "white"} />
       </motion.g>
 
       {/* Mountain Layers - Bottom to Top */}
@@ -250,6 +342,36 @@ export default function Mountain({ className = '' }: MountainProps) {
           animate={{ d: ['M 400 130 L 450 145 L 400 160 Z', 'M 400 130 L 475 145 L 400 160 Z', 'M 400 130 L 450 145 L 400 160 Z'] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         />
+      </motion.g>
+
+      {/* Time display in top-right corner */}
+      <motion.g
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        {/* Background for time */}
+        <rect
+          x="620"
+          y="15"
+          width="165"
+          height="40"
+          rx="8"
+          fill={isNight ? "hsl(230, 40%, 20%)" : "hsl(200, 60%, 90%)"}
+          opacity="0.9"
+        />
+        {/* Time text */}
+        <text
+          x="702"
+          y="42"
+          fontFamily="monospace"
+          fontSize="18"
+          fontWeight="bold"
+          fill={isNight ? "hsl(50, 80%, 80%)" : "hsl(200, 70%, 30%)"}
+          textAnchor="middle"
+        >
+          {formatTime(currentTime)}
+        </text>
       </motion.g>
     </svg>
   );
